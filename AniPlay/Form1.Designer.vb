@@ -23,22 +23,33 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Label1 = New Label()
+        Label2 = New Label()
         SuspendLayout()
         ' 
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(375, 174)
+        Label1.Location = New Point(371, 133)
         Label1.Name = "Label1"
         Label1.Size = New Size(33, 15)
         Label1.TabIndex = 0
         Label1.Text = "TEST"
+        ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.Location = New Point(353, 205)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(85, 15)
+        Label2.TabIndex = 1
+        Label2.Text = "TEST COMMIT"
         ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
+        Controls.Add(Label2)
         Controls.Add(Label1)
         Name = "Form1"
         Text = "Form1"
@@ -47,5 +58,6 @@ Partial Class Form1
     End Sub
 
     Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
 
 End Class
