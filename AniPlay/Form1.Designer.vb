@@ -26,6 +26,7 @@ Partial Class Form1
         Label2 = New Label()
         Button1 = New Button()
         Label3 = New Label()
+        TextBox1 = New TextBox()
         SuspendLayout()
         ' 
         ' Label1
@@ -64,11 +65,19 @@ Partial Class Form1
         Label3.TabIndex = 3
         Label3.Text = "RA HEE"
         ' 
+        ' TextBox1
+        ' 
+        TextBox1.Location = New Point(540, 282)
+        TextBox1.Name = "TextBox1"
+        TextBox1.Size = New Size(194, 23)
+        TextBox1.TabIndex = 4
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(811, 443)
+        Controls.Add(TextBox1)
         Controls.Add(Label3)
         Controls.Add(Button1)
         Controls.Add(Label2)
@@ -83,5 +92,6 @@ Partial Class Form1
     Friend WithEvents Label2 As Label
     Friend WithEvents Button1 As Button
     Friend WithEvents Label3 As Label
+    Friend WithEvents TextBox1 As TextBox
 
 End Class
