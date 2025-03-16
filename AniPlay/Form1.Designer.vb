@@ -48,9 +48,9 @@ Partial Class Form1
         ' 
         ' Button1
         ' 
-        Button1.Location = New Point(353, 311)
+        Button1.Location = New Point(353, 299)
         Button1.Name = "Button1"
-        Button1.Size = New Size(75, 23)
+        Button1.Size = New Size(105, 37)
         Button1.TabIndex = 2
         Button1.Text = "Button1"
         Button1.UseVisualStyleBackColor = True
