@@ -24,6 +24,7 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Label1 = New Label()
         Label2 = New Label()
+        Button1 = New Button()
         SuspendLayout()
         ' 
         ' Label1
@@ -44,11 +45,21 @@ Partial Class Form1
         Label2.TabIndex = 1
         Label2.Text = "TEST COMMIT"
         ' 
+        ' Button1
+        ' 
+        Button1.Location = New Point(329, 283)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(75, 23)
+        Button1.TabIndex = 2
+        Button1.Text = "Button1"
+        Button1.UseVisualStyleBackColor = True
+        ' 
         ' Form1
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(800, 450)
+        ClientSize = New Size(811, 443)
+        Controls.Add(Button1)
         Controls.Add(Label2)
         Controls.Add(Label1)
         Name = "Form1"
@@ -59,5 +70,6 @@ Partial Class Form1
 
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents Button1 As Button
 
 End Class
