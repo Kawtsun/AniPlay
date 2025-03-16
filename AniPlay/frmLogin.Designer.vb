@@ -39,7 +39,7 @@ Partial Class frmLogin
         txtPassword = New TextBox()
         Button1 = New Button()
         Label4 = New Label()
-        LinkLabel1 = New LinkLabel()
+        lnkRegister = New LinkLabel()
         PictureBox2 = New PictureBox()
         PictureBox3 = New PictureBox()
         Panel1.SuspendLayout()
@@ -223,17 +223,17 @@ Partial Class frmLogin
         Label4.TabIndex = 8
         Label4.Text = "No account yet?"
         ' 
-        ' LinkLabel1
+        ' lnkRegister
         ' 
-        LinkLabel1.AutoSize = True
-        LinkLabel1.Font = New Font("Katibeh", 18F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
-        LinkLabel1.LinkColor = Color.Yellow
-        LinkLabel1.Location = New Point(339, 437)
-        LinkLabel1.Name = "LinkLabel1"
-        LinkLabel1.Size = New Size(118, 29)
-        LinkLabel1.TabIndex = 9
-        LinkLabel1.TabStop = True
-        LinkLabel1.Text = "Register Here"
+        lnkRegister.AutoSize = True
+        lnkRegister.Font = New Font("Katibeh", 18F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        lnkRegister.LinkColor = Color.Yellow
+        lnkRegister.Location = New Point(339, 437)
+        lnkRegister.Name = "lnkRegister"
+        lnkRegister.Size = New Size(118, 29)
+        lnkRegister.TabIndex = 9
+        lnkRegister.TabStop = True
+        lnkRegister.Text = "Register Here"
         ' 
         ' PictureBox2
         ' 
@@ -262,7 +262,7 @@ Partial Class frmLogin
         BackColor = Color.Teal
         ClientSize = New Size(1264, 681)
         Controls.Add(PictureBox2)
-        Controls.Add(LinkLabel1)
+        Controls.Add(lnkRegister)
         Controls.Add(Label4)
         Controls.Add(Button1)
         Controls.Add(txtPassword)
@@ -298,7 +298,7 @@ Partial Class frmLogin
     Friend WithEvents txtPassword As TextBox
     Friend WithEvents Button1 As Button
     Friend WithEvents Label4 As Label
-    Friend WithEvents LinkLabel1 As LinkLabel
+    Friend WithEvents lnkRegister As LinkLabel
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents Label6 As Label
