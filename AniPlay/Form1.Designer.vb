@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Form1
+Partial Class frmLogin
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,7 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLogin))
         Panel1 = New Panel()
         PictureBox7 = New PictureBox()
         Label7 = New Label()
@@ -255,7 +255,7 @@ Partial Class Form1
         PictureBox3.TabIndex = 11
         PictureBox3.TabStop = False
         ' 
-        ' Form1
+        ' frmLogin
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
@@ -273,9 +273,9 @@ Partial Class Form1
         Controls.Add(PictureBox1)
         Controls.Add(Label1)
         Controls.Add(PictureBox3)
-        Name = "Form1"
+        Name = "frmLogin"
         StartPosition = FormStartPosition.CenterScreen
-        Text = "Form1"
+        Text = "Login"
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
         CType(PictureBox7, ComponentModel.ISupportInitialize).EndInit()
