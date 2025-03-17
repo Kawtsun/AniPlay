@@ -37,7 +37,7 @@ Partial Class frmLogin
         Label3 = New Label()
         txtUsername = New TextBox()
         txtPassword = New TextBox()
-        Button1 = New Button()
+        btnLogin = New Button()
         Label4 = New Label()
         lnkRegister = New LinkLabel()
         PictureBox2 = New PictureBox()
@@ -199,18 +199,18 @@ Partial Class frmLogin
         txtPassword.Size = New Size(339, 40)
         txtPassword.TabIndex = 6
         ' 
-        ' Button1
+        ' btnLogin
         ' 
-        Button1.BackColor = Color.MediumSeaGreen
-        Button1.Font = New Font("Katibeh", 21.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
-        Button1.ForeColor = Color.White
-        Button1.Location = New Point(256, 371)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(169, 51)
-        Button1.TabIndex = 7
-        Button1.Text = "Login"
-        Button1.TextAlign = ContentAlignment.TopCenter
-        Button1.UseVisualStyleBackColor = False
+        btnLogin.BackColor = Color.MediumSeaGreen
+        btnLogin.Font = New Font("Katibeh", 21.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        btnLogin.ForeColor = Color.White
+        btnLogin.Location = New Point(256, 371)
+        btnLogin.Name = "btnLogin"
+        btnLogin.Size = New Size(169, 51)
+        btnLogin.TabIndex = 7
+        btnLogin.Text = "Login"
+        btnLogin.TextAlign = ContentAlignment.TopCenter
+        btnLogin.UseVisualStyleBackColor = False
         ' 
         ' Label4
         ' 
@@ -264,7 +264,7 @@ Partial Class frmLogin
         Controls.Add(PictureBox2)
         Controls.Add(lnkRegister)
         Controls.Add(Label4)
-        Controls.Add(Button1)
+        Controls.Add(btnLogin)
         Controls.Add(txtPassword)
         Controls.Add(txtUsername)
         Controls.Add(Label3)
@@ -296,7 +296,7 @@ Partial Class frmLogin
     Friend WithEvents Label3 As Label
     Friend WithEvents txtUsername As TextBox
     Friend WithEvents txtPassword As TextBox
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnLogin As Button
     Friend WithEvents Label4 As Label
     Friend WithEvents lnkRegister As LinkLabel
     Friend WithEvents PictureBox2 As PictureBox
