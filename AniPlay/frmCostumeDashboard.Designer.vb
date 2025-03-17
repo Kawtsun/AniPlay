@@ -22,7 +22,6 @@ Partial Class frmCostumeDashboard
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCostumeDashboard))
         lblUser = New Label()
         Panel1 = New Panel()
         Panel2 = New Panel()
@@ -70,7 +69,7 @@ Partial Class frmCostumeDashboard
         ' PictureBox1
         ' 
         PictureBox1.BackgroundImageLayout = ImageLayout.None
-        PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
+        PictureBox1.Image = My.Resources.Resources.logo2
         PictureBox1.Location = New Point(47, 18)
         PictureBox1.Name = "PictureBox1"
         PictureBox1.Size = New Size(100, 100)
