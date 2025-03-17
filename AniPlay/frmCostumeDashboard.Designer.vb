@@ -170,7 +170,7 @@ Partial Class frmCostumeDashboard
         Controls.Add(Panel1)
         Controls.Add(lblUser)
         Name = "frmCostumeDashboard"
-        StartPosition = FormStartPosition.CenterParent
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Costume Dashboard"
         Panel1.ResumeLayout(False)
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
