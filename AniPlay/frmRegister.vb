@@ -15,7 +15,7 @@
 
         ' Check if the password and confirm password match
         If txtPassword.Text <> txtConfirmPassword.Text Then
-            MessageBox.Show("Password and Confirm Password do not match. Please try again.", "Password Mismatch", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Password do not match. Please try again.", "Password Mismatch", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
         End If
 

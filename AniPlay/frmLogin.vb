@@ -21,7 +21,7 @@
             Me.Hide()
             dashboard.Show()
         Else
-            MessageBox.Show("Invalid username or password.")
+            MessageBox.Show("Invalid username or password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
     End Sub
 
