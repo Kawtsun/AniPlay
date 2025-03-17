@@ -16,6 +16,10 @@
 
         If user IsNot Nothing Then
             MessageBox.Show($"Welcome, {user.name}!")
+            Dim dashboard As New frmCostumeDashboard()
+            dashboard.CurrentUser = user
+            Me.Hide()
+            dashboard.Show()
         Else
             MessageBox.Show("Invalid username or password.")
         End If
