@@ -24,17 +24,17 @@ Partial Class frmCheckout
     Private Sub InitializeComponent()
         Panel1 = New Panel()
         PanelCheckoutList = New Panel()
+        lblDiscount = New Label()
+        Label14 = New Label()
         lblSubTotal = New Label()
         lblDuration = New Label()
-        lblDiscount = New Label()
-        btnMinus = New Button()
-        btnAdd = New Button()
+        lblFinalTotal = New Label()
         Label12 = New Label()
         btnProceed = New Button()
         txtEmail = New TextBox()
         Label11 = New Label()
         Label10 = New Label()
-        Label9 = New Label()
+        LabelTOtalPrice = New Label()
         DateTimeUntil = New DateTimePicker()
         Label8 = New Label()
         DateTimeFrom = New DateTimePicker()
@@ -70,17 +70,17 @@ Partial Class frmCheckout
         ' PanelCheckoutList
         ' 
         PanelCheckoutList.BackColor = Color.Teal
+        PanelCheckoutList.Controls.Add(lblDiscount)
+        PanelCheckoutList.Controls.Add(Label14)
         PanelCheckoutList.Controls.Add(lblSubTotal)
         PanelCheckoutList.Controls.Add(lblDuration)
-        PanelCheckoutList.Controls.Add(lblDiscount)
-        PanelCheckoutList.Controls.Add(btnMinus)
-        PanelCheckoutList.Controls.Add(btnAdd)
+        PanelCheckoutList.Controls.Add(lblFinalTotal)
         PanelCheckoutList.Controls.Add(Label12)
         PanelCheckoutList.Controls.Add(btnProceed)
         PanelCheckoutList.Controls.Add(txtEmail)
         PanelCheckoutList.Controls.Add(Label11)
         PanelCheckoutList.Controls.Add(Label10)
-        PanelCheckoutList.Controls.Add(Label9)
+        PanelCheckoutList.Controls.Add(LabelTOtalPrice)
         PanelCheckoutList.Controls.Add(DateTimeUntil)
         PanelCheckoutList.Controls.Add(Label8)
         PanelCheckoutList.Controls.Add(DateTimeFrom)
@@ -99,12 +99,32 @@ Partial Class frmCheckout
         PanelCheckoutList.Size = New Size(1240, 502)
         PanelCheckoutList.TabIndex = 0
         ' 
+        ' lblDiscount
+        ' 
+        lblDiscount.BackColor = Color.White
+        lblDiscount.Font = New Font("Katibeh", 18F)
+        lblDiscount.ForeColor = Color.Black
+        lblDiscount.Location = New Point(766, 310)
+        lblDiscount.Name = "lblDiscount"
+        lblDiscount.Size = New Size(224, 36)
+        lblDiscount.TabIndex = 26
+        ' 
+        ' Label14
+        ' 
+        Label14.AutoSize = True
+        Label14.Font = New Font("Katibeh", 21.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        Label14.Location = New Point(647, 311)
+        Label14.Name = "Label14"
+        Label14.Size = New Size(97, 35)
+        Label14.TabIndex = 25
+        Label14.Text = "Discount"
+        ' 
         ' lblSubTotal
         ' 
         lblSubTotal.BackColor = Color.White
         lblSubTotal.Font = New Font("Katibeh", 18F)
         lblSubTotal.ForeColor = Color.Black
-        lblSubTotal.Location = New Point(766, 311)
+        lblSubTotal.Location = New Point(766, 262)
         lblSubTotal.Name = "lblSubTotal"
         lblSubTotal.Size = New Size(224, 36)
         lblSubTotal.TabIndex = 24
@@ -114,50 +134,26 @@ Partial Class frmCheckout
         lblDuration.BackColor = Color.White
         lblDuration.Font = New Font("Katibeh", 18F)
         lblDuration.ForeColor = Color.Black
-        lblDuration.Location = New Point(766, 261)
+        lblDuration.Location = New Point(766, 212)
         lblDuration.Name = "lblDuration"
         lblDuration.Size = New Size(224, 36)
         lblDuration.TabIndex = 23
         ' 
-        ' lblDiscount
+        ' lblFinalTotal
         ' 
-        lblDiscount.BackColor = Color.White
-        lblDiscount.Font = New Font("Katibeh", 18F)
-        lblDiscount.ForeColor = Color.Black
-        lblDiscount.Location = New Point(766, 210)
-        lblDiscount.Name = "lblDiscount"
-        lblDiscount.Size = New Size(224, 36)
-        lblDiscount.TabIndex = 22
-        ' 
-        ' btnMinus
-        ' 
-        btnMinus.BackColor = Color.MediumSeaGreen
-        btnMinus.Font = New Font("Arial Narrow", 20.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        btnMinus.ForeColor = Color.White
-        btnMinus.Location = New Point(1042, 258)
-        btnMinus.Name = "btnMinus"
-        btnMinus.Size = New Size(40, 40)
-        btnMinus.TabIndex = 21
-        btnMinus.Text = "-"
-        btnMinus.UseVisualStyleBackColor = False
-        ' 
-        ' btnAdd
-        ' 
-        btnAdd.BackColor = Color.MediumSeaGreen
-        btnAdd.Font = New Font("Arial Narrow", 20.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        btnAdd.ForeColor = Color.White
-        btnAdd.Location = New Point(996, 258)
-        btnAdd.Name = "btnAdd"
-        btnAdd.Size = New Size(40, 40)
-        btnAdd.TabIndex = 20
-        btnAdd.Text = "+"
-        btnAdd.UseVisualStyleBackColor = False
+        lblFinalTotal.BackColor = Color.White
+        lblFinalTotal.Font = New Font("Katibeh", 18F)
+        lblFinalTotal.ForeColor = Color.Black
+        lblFinalTotal.Location = New Point(766, 355)
+        lblFinalTotal.Name = "lblFinalTotal"
+        lblFinalTotal.Size = New Size(224, 36)
+        lblFinalTotal.TabIndex = 22
         ' 
         ' Label12
         ' 
         Label12.AutoSize = True
         Label12.Font = New Font("Katibeh", 21.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
-        Label12.Location = New Point(647, 262)
+        Label12.Location = New Point(647, 213)
         Label12.Name = "Label12"
         Label12.Size = New Size(98, 35)
         Label12.TabIndex = 18
@@ -168,7 +164,7 @@ Partial Class frmCheckout
         btnProceed.BackColor = Color.MediumSeaGreen
         btnProceed.Font = New Font("Katibeh", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
         btnProceed.ForeColor = Color.White
-        btnProceed.Location = New Point(526, 404)
+        btnProceed.Location = New Point(523, 415)
         btnProceed.Name = "btnProceed"
         btnProceed.Size = New Size(189, 51)
         btnProceed.TabIndex = 7
@@ -200,21 +196,21 @@ Partial Class frmCheckout
         ' 
         Label10.AutoSize = True
         Label10.Font = New Font("Katibeh", 21.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
-        Label10.Location = New Point(647, 311)
+        Label10.Location = New Point(647, 262)
         Label10.Name = "Label10"
         Label10.Size = New Size(105, 35)
         Label10.TabIndex = 14
         Label10.Text = "Sub Total:"
         ' 
-        ' Label9
+        ' LabelTOtalPrice
         ' 
-        Label9.AutoSize = True
-        Label9.Font = New Font("Katibeh", 21.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
-        Label9.Location = New Point(647, 212)
-        Label9.Name = "Label9"
-        Label9.Size = New Size(101, 35)
-        Label9.TabIndex = 12
-        Label9.Text = "Discount:"
+        LabelTOtalPrice.AutoSize = True
+        LabelTOtalPrice.Font = New Font("Katibeh", 21.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        LabelTOtalPrice.Location = New Point(647, 357)
+        LabelTOtalPrice.Name = "LabelTOtalPrice"
+        LabelTOtalPrice.Size = New Size(114, 35)
+        LabelTOtalPrice.TabIndex = 12
+        LabelTOtalPrice.Text = "Total Price"
         ' 
         ' DateTimeUntil
         ' 
@@ -236,6 +232,7 @@ Partial Class frmCheckout
         ' 
         ' DateTimeFrom
         ' 
+        DateTimeFrom.Enabled = False
         DateTimeFrom.Font = New Font("Katibeh", 18F)
         DateTimeFrom.Location = New Point(766, 108)
         DateTimeFrom.Name = "DateTimeFrom"
@@ -399,9 +396,9 @@ Partial Class frmCheckout
         Label1.ForeColor = Color.White
         Label1.Location = New Point(177, 50)
         Label1.Name = "Label1"
-        Label1.Size = New Size(159, 41)
+        Label1.Size = New Size(165, 41)
         Label1.TabIndex = 6
-        Label1.Text = "Aniplay"
+        Label1.Text = "AniPlay"
         ' 
         ' frmCheckout
         ' 
@@ -446,17 +443,17 @@ Partial Class frmCheckout
     Friend WithEvents txtContactNo As TextBox
     Friend WithEvents DateTimeUntil As DateTimePicker
     Friend WithEvents Label8 As Label
-    Friend WithEvents Label9 As Label
+    Friend WithEvents LabelTOtalPrice As Label
     Friend WithEvents Label13 As TextBox
     Friend WithEvents Label10 As Label
     Friend WithEvents btnProceed As Button
     Friend WithEvents txtEmail As TextBox
     Friend WithEvents Label11 As Label
-    Friend WithEvents btnMinus As Button
-    Friend WithEvents btnAdd As Button
     Friend WithEvents Label12 As Label
-    Friend WithEvents lblDiscount As Label
+    Friend WithEvents lblFinalTotal As Label
     Friend WithEvents lblDuration As Label
     Friend WithEvents lblSubTotal As Label
+    Friend WithEvents lblDiscount As Label
+    Friend WithEvents Label14 As Label
 
 End Class

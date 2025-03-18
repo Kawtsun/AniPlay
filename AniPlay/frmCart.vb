@@ -148,12 +148,18 @@
                                                  ' Compute the initial subtotal
                                                  Dim subtotal As Decimal = 0
                                                  For Each item In cartData
-                                                     subtotal += item.RentalPricePerDay ' Calculate for 1 day
+                                                     subtotal += item.RentalPricePerDay ' Calculate total for 1 day
                                                  Next
 
-                                                 ' Navigate to Checkout form
+                                                 ' Base discount: 5% applied only when cartData.Count >= 3
+                                                 Dim baseDiscount As Decimal = 0
+                                                 If cartData.Count >= 3 Then
+                                                     baseDiscount = subtotal * 0.05 ' Calculate 5% discount
+                                                 End If
+
+                                                 ' Pass data to the checkout form
                                                  Dim checkoutForm As New frmCheckout()
-                                                 checkoutForm.LoadCheckoutData(cartData, subtotal) ' Pass data
+                                                 checkoutForm.LoadCheckoutData(cartData, subtotal, baseDiscount) ' Pass subtotal and base discount
                                                  checkoutForm.Show()
                                                  Me.Hide()
                                              End Sub

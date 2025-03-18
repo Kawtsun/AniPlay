@@ -1,63 +1,82 @@
 ﻿Public Class frmCheckout
     Private checkoutData As List(Of frmCostumeDashboard.CartItem)
+    Private baseTotalPrice As Decimal ' Total price for 1 day before discounts
+    Private baseDiscountRate As Decimal ' Fixed base discount (5%)
+    Private additionalDiscountRate As Decimal = 0 ' Additional discount rate based on duration
     Private rentalDuration As Integer = 1 ' Default duration: 1 day
-    Private discount As Decimal = 0 ' Default discount: 0
 
-    ' Load checkout data (cart items and subtotal)
-    Public Sub LoadCheckoutData(data As List(Of frmCostumeDashboard.CartItem), initialSubtotal As Decimal)
+    ' Load checkout data (cart items, subtotal, and base discount)
+    Public Sub LoadCheckoutData(data As List(Of frmCostumeDashboard.CartItem), subtotal As Decimal, baseDiscount As Decimal)
         checkoutData = data
-        rentalDuration = 1 ' Ensure the duration starts at 1 day
-        discount = 0 ' Reset any applied discounts
-        UpdateSubtotal() ' Initialize the subtotal
+        baseTotalPrice = subtotal
+        baseDiscountRate = If(baseDiscount > 0, 0.05, 0) ' Set base discount rate only if discount > 0
+        UpdateDisplay() ' Update all labels dynamically
     End Sub
 
-    ' Method to dynamically update the subtotal
-    Private Sub UpdateSubtotal()
-        ' Calculate the total price based on rental duration and any discount
-        Dim totalPrice As Decimal = checkoutData.Sum(Function(item) item.RentalPricePerDay * rentalDuration)
-        Dim discountedPrice As Decimal = totalPrice - discount
 
-        ' Update the labels dynamically
-        If lblSubTotal IsNot Nothing Then
-            lblSubTotal.Text = discountedPrice.ToString("C2") ' Display the subtotal with discount applied
+    ' Method to dynamically calculate and update the subtotal, discounts, and final total
+    Private Sub UpdateDisplay()
+        ' Calculate total price before discounts (scaled by duration)
+        Dim totalBeforeDiscounts As Decimal = baseTotalPrice * rentalDuration
+
+        ' Calculate the additional discount rate based on duration
+        If rentalDuration >= 10 Then
+            additionalDiscountRate = 0.2 ' 20% discount for 10+ days
+        ElseIf rentalDuration >= 5 Then
+            additionalDiscountRate = 0.1 ' 10% discount for 5–9 days
+        Else
+            additionalDiscountRate = 0 ' No additional discount for <5 days
         End If
 
+        ' Calculate discounts
+        Dim baseDiscountValue As Decimal = totalBeforeDiscounts * baseDiscountRate ' Base discount (5%)
+        Dim additionalDiscountValue As Decimal = totalBeforeDiscounts * additionalDiscountRate ' Additional discount
+        Dim totalDiscount As Decimal = baseDiscountValue + additionalDiscountValue ' Combined discount
+        Dim totalAfterDiscounts As Decimal = totalBeforeDiscounts - totalDiscount ' Final price
+
+        ' Update labels dynamically
         If lblDuration IsNot Nothing Then
-            lblDuration.Text = rentalDuration.ToString() ' Update rental duration display
+            lblDuration.Text = $"{rentalDuration} Day(s)" ' Update duration label
+        End If
+
+        If lblSubTotal IsNot Nothing Then
+            lblSubTotal.Text = totalBeforeDiscounts.ToString("C2") ' Display total before discounts
         End If
 
         If lblDiscount IsNot Nothing Then
-            lblDiscount.Text = discount.ToString("C2") ' Update the discount display
+            Dim totalDiscountPercentage As Decimal = (baseDiscountRate + additionalDiscountRate) * 100
+            lblDiscount.Text = $"{totalDiscount.ToString("C2")} | {totalDiscountPercentage}%" ' Display discount details
+        End If
+
+        If lblFinalTotal IsNot Nothing Then
+            lblFinalTotal.Text = totalAfterDiscounts.ToString("C2") ' Display final total price
         End If
     End Sub
 
-    ' Event handler for increasing rental duration
-    Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        If lblDuration IsNot Nothing Then
-            rentalDuration += 1 ' Increase the rental duration
-            lblDuration.Text = rentalDuration.ToString() ' Update the label
-            UpdateSubtotal() ' Recalculate the subtotal
-        End If
-    End Sub
-
-    ' Event handler for decreasing rental duration
-    Private Sub btnMinus_Click(sender As Object, e As EventArgs) Handles btnMinus.Click
-        If lblDuration IsNot Nothing AndAlso rentalDuration > 1 Then
-            rentalDuration -= 1 ' Decrease the rental duration (minimum of 1 day)
-            lblDuration.Text = rentalDuration.ToString() ' Update the label
-            UpdateSubtotal() ' Recalculate the subtotal
+    ' Handle date changes to recalculate the duration and prices
+    Private Sub DateTime_ValueChanged(sender As Object, e As EventArgs) Handles DateTimeFrom.ValueChanged, DateTimeUntil.ValueChanged
+        If DateTimeUntil.Value >= DateTimeFrom.Value Then
+            rentalDuration = (DateTimeUntil.Value - DateTimeFrom.Value).Days + 1 ' Calculate duration (inclusive)
+            UpdateDisplay() ' Recalculate and update everything
+        Else
+            ' Validation: Ensure the return date is not earlier than the start date
+            MessageBox.Show("The return date must be later than or equal to the start date.", "Invalid Date Range", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            DateTimeUntil.Value = DateTimeFrom.Value ' Reset the return date to match the start date
         End If
     End Sub
 
     ' Form load event
     Private Sub frmCheckout_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' Ensure labels are initialized properly
-        If lblDuration IsNot Nothing Then
-            lblDuration.Text = rentalDuration.ToString() ' Set the initial duration
-        End If
-        If lblDiscount IsNot Nothing Then
-            lblDiscount.Text = discount.ToString("C2") ' Set the initial discount
-        End If
-        UpdateSubtotal() ' Initialize the subtotal display
+        ' Initialize the date pickers
+        DateTimeFrom.Value = DateTime.Now.Date ' Default to today's date
+        DateTimeUntil.Value = DateTime.Now.Date ' Default to today's date
+
+        ' Initialize labels
+        lblDuration.Text = $"{rentalDuration} Day(s)" ' Default duration to 1 day
+        lblDiscount.Text = "₱0.00 | 0%" ' Default to no discount
+        lblFinalTotal.Text = baseTotalPrice.ToString("C2") ' Initialize with subtotal
+
+        ' Update display
+        UpdateDisplay()
     End Sub
 End Class
