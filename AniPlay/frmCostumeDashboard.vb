@@ -73,6 +73,7 @@
         activeButton.TextAlign = ContentAlignment.TopCenter
     End Sub
 
+
     ' Event handler for category buttons
     Private Sub btnCategory_Click(sender As Object, e As EventArgs) Handles btnAll.Click, btnWomen.Click, btnMen.Click, btnAccessories.Click
         ' Cast the sender to a Button
