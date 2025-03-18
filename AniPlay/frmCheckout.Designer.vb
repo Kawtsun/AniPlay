@@ -357,7 +357,7 @@ Partial Class frmCheckout
         Controls.Add(PictureBox1)
         Controls.Add(Panel1)
         Name = "frmCheckout"
-        Text = "Form1"
+        Text = "Checkout"
         Panel1.ResumeLayout(False)
         PanelCheckout.ResumeLayout(False)
         PanelCheckout.PerformLayout()
