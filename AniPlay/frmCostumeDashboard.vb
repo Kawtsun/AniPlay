@@ -23,7 +23,7 @@
         ' Highlight the active button
         activeButton.BackColor = Color.MediumSeaGreen ' Active button color
         activeButton.ForeColor = Color.White ' Active text color
-        activeButton.Font = New Font("Katibeh", 20, FontStyle.Bold) ' Bold font for active button
+        activeButton.Font = New Font("Katibeh", 20, FontStyle.Regular) ' Bold font for active button
         activeButton.TextAlign = ContentAlignment.TopCenter
     End Sub
 
@@ -119,8 +119,9 @@
             ' Add Label for price
             Dim priceLabel As New Label() With {
                 .Text = costume.Price,
-                .Font = New Font("Katibeh", 16, FontStyle.Regular),
+                .Font = New Font("Katibeh", 18, FontStyle.Regular),
                 .ForeColor = Color.Black,
+                .Height = 30,
                 .Width = imageWidth,
                 .TextAlign = ContentAlignment.MiddleCenter,
                 .Top = nameLabel.Top + nameLabel.Height + innerSpacing
