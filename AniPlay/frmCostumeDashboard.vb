@@ -1,112 +1,165 @@
 ﻿Public Class frmCostumeDashboard
     Public Property CurrentUser As User
+    Private costumeData As List(Of CostumeItem) ' List to store all costume data
 
+    ' Class to store costume information
+    Private Class CostumeItem
+        Public Property Name As String
+        Public Property ImagePath As String
+        Public Property Price As String
+        Public Property Category As String
+    End Class
+
+    ' Method to set the active button
+    Private Sub SetActiveButton(activeButton As Button)
+        ' Reset the appearance of all category buttons
+        For Each btn In New Button() {btnAll, btnWomen, btnMen, btnAccessories}
+            btn.BackColor = Color.White ' Default color for inactive buttons
+            btn.ForeColor = Color.Black ' Default text color
+            btn.Font = New Font("Katibeh", 20, FontStyle.Regular) ' Reset font to "Katibeh" in regular style
+            btn.TextAlign = ContentAlignment.TopCenter
+        Next
+
+        ' Highlight the active button
+        activeButton.BackColor = Color.MediumSeaGreen ' Active button color
+        activeButton.ForeColor = Color.White ' Active text color
+        activeButton.Font = New Font("Katibeh", 20, FontStyle.Bold) ' Bold font for active button
+        activeButton.TextAlign = ContentAlignment.TopCenter
+    End Sub
+
+
+    ' Load event: initializes the form
     Private Sub frmCostumeDashboard_Load(sender As Object, e As EventArgs) Handles Me.Load
+        ' Display welcome message
         If CurrentUser IsNot Nothing Then
             lblUser.Text = $"Welcome, {CurrentUser.name}"
         Else
             lblUser.Text = "Welcome, User!"
         End If
 
-        'Cosplay Pictures
-        Dim imagePaths As String() = {
-            "D:\Coding Projects\AniPlay\AniPlay\Resources\ai.jpg",
-            "D:\Coding Projects\AniPlay\AniPlay\Resources\frieren.jpg",
-            "D:\Coding Projects\AniPlay\AniPlay\Resources\homura.jpg",
-            "D:\Coding Projects\AniPlay\AniPlay\Resources\junko.jpg",
-            "D:\Coding Projects\AniPlay\AniPlay\Resources\kita.jpg",
-            "D:\Coding Projects\AniPlay\AniPlay\Resources\madoka.jpg",
-            "D:\Coding Projects\AniPlay\AniPlay\Resources\mcqueen.jpg",
-            "D:\Coding Projects\AniPlay\AniPlay\Resources\mortis.jpg"
-        } ' Add your image paths here
+        ' Initialize costume data
+        InitializeCostumeData()
 
-        ' Panel dimensions
-        Dim panelWidth As Integer = 1054 ' Width of the main container panel
-        Dim panelHeight As Integer = 542 ' Height of the main container panel
+        ' Display all costumes by default
+        DisplayCostumes("All")
 
-        ' Margins and dimensions
-        Dim outerMargin As Integer = 20 ' Margin on both sides of the layout
-        Dim verticalPadding As Integer = 25 ' Vertical spacing between rows
-        Dim imagesPerRow As Integer = 3 ' Number of items per row
+        ' Set "All" button as active by default
+        SetActiveButton(btnAll)
+    End Sub
 
-        ' Calculate item dimensions dynamically
-        Dim totalHorizontalMargin As Integer = outerMargin * 2 ' Total left and right margins
-        Dim availableWidth As Integer = panelWidth - totalHorizontalMargin ' Usable width for items
-        Dim imageWidth As Integer = (availableWidth - (imagesPerRow - 1) * outerMargin) \ imagesPerRow ' Fit items with spacing
-        Dim imageHeight As Integer = imageWidth * 3 \ 4 ' Maintain a 4:3 aspect ratio
-        Dim buttonHeight As Integer = 60 ' Button height for larger text
-        Dim innerSpacing As Integer = 15 ' Space between the image, label, and button
+    ' Initialize costume data
+    Private Sub InitializeCostumeData()
+        Dim basePath As String = AppDomain.CurrentDomain.BaseDirectory & "Resources\"
 
-        ' Example prices array
-        Dim prices As String() = {"₱1,500", "₱1,800", "₱1,200", "₱2,000", "₱1,700", "₱2,300", "₱1,600", "₱2,100"}
+        costumeData = New List(Of CostumeItem) From {
+            New CostumeItem With {.Name = "AI", .ImagePath = basePath & "ai.jpg", .Price = "₱1,500", .Category = "All"},
+            New CostumeItem With {.Name = "Frieren", .ImagePath = basePath & "frieren.jpg", .Price = "₱1,800", .Category = "Women"},
+            New CostumeItem With {.Name = "Homura", .ImagePath = basePath & "homura.jpg", .Price = "₱1,200", .Category = "Women"},
+            New CostumeItem With {.Name = "Junko", .ImagePath = basePath & "junko.jpg", .Price = "₱2,000", .Category = "Women"},
+            New CostumeItem With {.Name = "Kita", .ImagePath = basePath & "kita.jpg", .Price = "₱1,700", .Category = "Men"},
+            New CostumeItem With {.Name = "Madoka", .ImagePath = basePath & "madoka.jpg", .Price = "₱2,300", .Category = "Accessories"},
+            New CostumeItem With {.Name = "McQueen", .ImagePath = basePath & "mcqueen.jpg", .Price = "₱1,600", .Category = "Men"},
+            New CostumeItem With {.Name = "Mortis", .ImagePath = basePath & "mortis.jpg", .Price = "₱2,100", .Category = "Accessories"}
+        }
+    End Sub
 
-        For i As Integer = 0 To imagePaths.Length - 1
-            ' Create a container panel for each item
-            Dim itemPanel As New Panel()
-            itemPanel.Width = imageWidth ' Set panel width
-            itemPanel.Height = imageHeight + buttonHeight + innerSpacing + 50 ' Adjusted height to avoid cutting off the button
-            itemPanel.BackColor = Color.White ' Background for clarity
-            itemPanel.BorderStyle = BorderStyle.FixedSingle ' Add a border to visually distinguish panels
+    ' Display costumes based on category
+    Private Sub DisplayCostumes(category As String)
+        Panel2.Controls.Clear() ' Clear existing items in Panel2
 
-            ' Calculate position of the panel
-            Dim column As Integer = i Mod imagesPerRow
-            Dim row As Integer = Math.Floor(i / imagesPerRow)
-            itemPanel.Left = outerMargin + (column * (imageWidth + outerMargin)) ' Calculate horizontal position
-            itemPanel.Top = outerMargin + (row * (itemPanel.Height + verticalPadding)) ' Calculate vertical position
+        ' Filter costumes by category or show all if "All" is selected
+        Dim filteredCostumes = costumeData.Where(Function(c) c.Category = category Or category = "All").ToList()
 
-            ' Create and configure PictureBox with top padding
-            Dim pictureBox As New PictureBox()
-            pictureBox.Image = Image.FromFile(imagePaths(i))
-            pictureBox.SizeMode = PictureBoxSizeMode.Zoom
-            pictureBox.Width = imageWidth
-            pictureBox.Height = imageHeight
-            pictureBox.Top = 10 ' Padding at the top for spacing
-            pictureBox.Left = 0 ' Align to the left
+        Dim outerMargin As Integer = 20
+        Dim verticalPadding As Integer = 25
+        Dim imagesPerRow As Integer = 3
+        Dim imageWidth As Integer = 320 ' Fixed width
+        Dim imageHeight As Integer = imageWidth * 3 \ 4
+        Dim buttonHeight As Integer = 60 ' Button height for consistent design
+        Dim innerSpacing As Integer = 20 ' Space between elements
 
-            ' Add PictureBox to the panel
+        For Each costume In filteredCostumes
+            ' Create a container panel for each costume
+            Dim itemPanel As New Panel() With {
+                .Width = imageWidth,
+                .Height = imageHeight + 50 + buttonHeight + (innerSpacing * 3),
+                .BackColor = Color.White,
+                .BorderStyle = BorderStyle.FixedSingle
+            }
+
+            ' Positioning logic
+            Dim column As Integer = filteredCostumes.IndexOf(costume) Mod imagesPerRow
+            Dim row As Integer = Math.Floor(filteredCostumes.IndexOf(costume) / imagesPerRow)
+            itemPanel.Left = outerMargin + (column * (imageWidth + outerMargin))
+            itemPanel.Top = outerMargin + (row * (itemPanel.Height + verticalPadding))
+
+            ' Add PictureBox for image
+            Dim pictureBox As New PictureBox() With {
+                .Image = Image.FromFile(costume.ImagePath),
+                .SizeMode = PictureBoxSizeMode.Zoom,
+                .Width = imageWidth,
+                .Height = imageHeight,
+                .Top = 10,
+                .Left = 0
+            }
             itemPanel.Controls.Add(pictureBox)
 
-            ' Create and configure the price Label
-            Dim priceLabel As New Label()
-            priceLabel.Text = prices(i) ' Assign price
-            priceLabel.Font = New Font("Katibeh", 16, FontStyle.Regular) ' Font styling
-            priceLabel.ForeColor = Color.Black ' Set text color
-            priceLabel.Width = imageWidth
-            priceLabel.TextAlign = ContentAlignment.MiddleCenter ' Center-align text
-            priceLabel.Top = pictureBox.Top + pictureBox.Height + innerSpacing ' Position below image
-            priceLabel.Left = 0 ' Align to the left
+            ' Add Label for name
+            Dim nameLabel As New Label() With {
+                .Text = costume.Name,
+                .Font = New Font("Katibeh", 20, FontStyle.Regular),
+                .ForeColor = Color.Navy,
+                .Height = 30,
+                .Width = imageWidth,
+                .TextAlign = ContentAlignment.MiddleCenter,
+                .Top = pictureBox.Top + pictureBox.Height + innerSpacing
+            }
+            itemPanel.Controls.Add(nameLabel)
 
-            ' Add Label to the panel
+            ' Add Label for price
+            Dim priceLabel As New Label() With {
+                .Text = costume.Price,
+                .Font = New Font("Katibeh", 16, FontStyle.Regular),
+                .ForeColor = Color.Black,
+                .Width = imageWidth,
+                .TextAlign = ContentAlignment.MiddleCenter,
+                .Top = nameLabel.Top + nameLabel.Height + innerSpacing
+            }
             itemPanel.Controls.Add(priceLabel)
 
-            ' Create and configure Button with custom styling
-            Dim addButton As New Button()
-            addButton.Text = "Add to Cart"
-            addButton.Width = imageWidth
-            addButton.Height = buttonHeight
-            addButton.Left = 0 ' Align to the left of the panel
-
-            ' Adjust button position to place it near the bottom of the panel
-            addButton.Top = itemPanel.Height - buttonHeight ' Align the button flush with the panel's bottom edge
-
-            ' Apply styling to the button
-            addButton.BackColor = Color.MediumSeaGreen ' Set button background color
-            addButton.ForeColor = Color.White ' Set button text color
-            addButton.FlatStyle = FlatStyle.Standard ' Use standard button style
-            addButton.Font = New Font("Katibeh", 20, FontStyle.Regular) ' Font size 20, Regular style
-            addButton.Cursor = Cursors.Hand ' Display hand cursor on hover
-            addButton.TextAlign = ContentAlignment.MiddleCenter ' Center the text within the button
-
-            ' Add the button click event handler
+            ' Add "Add to Cart" Button
+            Dim addButton As New Button() With {
+                .Text = "Add to Cart",
+                .Width = imageWidth,
+                .Height = buttonHeight,
+                .Left = 0,
+                .Top = itemPanel.Height - buttonHeight - 0,
+                .BackColor = Color.MediumSeaGreen,
+                .ForeColor = Color.White,
+                .FlatStyle = FlatStyle.Standard,
+                .Font = New Font("Katibeh", 18, FontStyle.Regular),
+                .Cursor = Cursors.Hand,
+                .TextAlign = ContentAlignment.MiddleCenter
+            }
             AddHandler addButton.Click, Sub(senderButton, eArgs)
-                                            MessageBox.Show($"Added {imagePaths(i)} to the cart!")
+                                            MessageBox.Show($"Added {costume.Name} to the cart!")
                                         End Sub
-
-            ' Add the button to the panel
             itemPanel.Controls.Add(addButton)
 
-            ' Add the item panel to the main panel
+            ' Add the item panel to Panel2
             Panel2.Controls.Add(itemPanel)
         Next
+    End Sub
+
+    ' Event handler for category buttons
+    Private Sub btnCategory_Click(sender As Object, e As EventArgs) Handles btnAll.Click, btnWomen.Click, btnMen.Click, btnAccessories.Click
+        Dim button = DirectCast(sender, Button)
+        Dim category As String = button.Text ' Category name is based on button text
+
+        ' Display costumes for the selected category
+        DisplayCostumes(category)
+
+        ' Set the clicked button as active
+        SetActiveButton(button)
     End Sub
 End Class
