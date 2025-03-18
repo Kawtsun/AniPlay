@@ -1,4 +1,6 @@
-﻿Public Class frmCheckout
+﻿Imports AniPlay.frmActive
+
+Public Class frmCheckout
     Public Property Username As String
     Public Property Name As String
     Public Property Email As String
@@ -90,4 +92,35 @@
         ' Update display
         UpdateDisplay()
     End Sub
+
+    ' Event for Proceed button
+    Private Sub btnProceed_Click(sender As Object, e As EventArgs) Handles btnProceed.Click
+        ' Create an instance of frmActive
+        Dim frmActiveInstance As New frmActive()
+
+        ' Prepare data to pass to frmActive
+        Dim rentalDetails As New ActiveRental With {
+            .RentalNo = Guid.NewGuid().ToString().Substring(0, 8), ' Generate a unique Rental No
+            .Name = Name,
+            .Email = Email,
+            .Address = txtAddress.Text, ' Replace with actual data
+            .ContactNo = txtContactNo.Text, ' Replace with actual data
+            .DateFrom = DateTimeFrom.Value,
+            .DateUntil = DateTimeUntil.Value,
+            .SubTotal = baseTotalPrice,
+            .Discount = baseTotalPrice * (baseDiscountRate + additionalDiscountRate),
+            .TotalPrice = baseTotalPrice * rentalDuration - baseTotalPrice * (baseDiscountRate + additionalDiscountRate),
+            .DailyPrice = baseTotalPrice / rentalDuration ' Calculate daily price
+        }
+
+        ' Send data to frmActive
+        frmActiveInstance.LoadActiveRentals(New List(Of ActiveRental) From {rentalDetails})
+
+        ' Show frmActive
+        frmActiveInstance.Show()
+
+        ' Optionally, hide or close frmCheckout
+        Me.Hide()
+    End Sub
+
 End Class

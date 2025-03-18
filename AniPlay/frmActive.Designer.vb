@@ -24,11 +24,11 @@ Partial Class frmActive
     Private Sub InitializeComponent()
         Panel1 = New Panel()
         Panel2 = New Panel()
-        Panel3 = New Panel()
+        PanelActiveRental = New Panel()
         btnReturn = New Button()
         Label4 = New Label()
         DateTimeDateReturned = New DateTimePicker()
-        lblCostumeName = New Label()
+        lblRent = New Label()
         Label2 = New Label()
         PictureBox1 = New PictureBox()
         Label1 = New Label()
@@ -38,7 +38,7 @@ Partial Class frmActive
         btnShop = New Button()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
-        Panel3.SuspendLayout()
+        PanelActiveRental.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -54,28 +54,29 @@ Partial Class frmActive
         ' Panel2
         ' 
         Panel2.BackColor = Color.Teal
-        Panel2.Controls.Add(Panel3)
+        Panel2.Controls.Add(PanelActiveRental)
         Panel2.Controls.Add(Label2)
-        Panel2.Location = New Point(14, 17)
+        Panel2.Location = New Point(291, 20)
         Panel2.Name = "Panel2"
-        Panel2.Size = New Size(1240, 502)
+        Panel2.Size = New Size(675, 496)
         Panel2.TabIndex = 0
         ' 
-        ' Panel3
+        ' PanelActiveRental
         ' 
-        Panel3.BackColor = Color.White
-        Panel3.Controls.Add(btnReturn)
-        Panel3.Controls.Add(Label4)
-        Panel3.Controls.Add(DateTimeDateReturned)
-        Panel3.Controls.Add(lblCostumeName)
-        Panel3.Location = New Point(14, 75)
-        Panel3.Name = "Panel3"
-        Panel3.Size = New Size(1212, 118)
-        Panel3.TabIndex = 1
+        PanelActiveRental.BackColor = Color.White
+        PanelActiveRental.Controls.Add(btnReturn)
+        PanelActiveRental.Controls.Add(Label4)
+        PanelActiveRental.Controls.Add(DateTimeDateReturned)
+        PanelActiveRental.Controls.Add(lblRent)
+        PanelActiveRental.Location = New Point(34, 69)
+        PanelActiveRental.Name = "PanelActiveRental"
+        PanelActiveRental.Size = New Size(612, 406)
+        PanelActiveRental.TabIndex = 1
         ' 
         ' btnReturn
         ' 
         btnReturn.BackColor = Color.MediumSeaGreen
+        btnReturn.Enabled = False
         btnReturn.Font = New Font("Katibeh", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
         btnReturn.ForeColor = Color.White
         btnReturn.Location = New Point(1038, 34)
@@ -90,7 +91,7 @@ Partial Class frmActive
         ' 
         Label4.AutoSize = True
         Label4.Font = New Font("Katibeh", 23.9999962F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
-        Label4.Location = New Point(450, 46)
+        Label4.Location = New Point(423, 47)
         Label4.Name = "Label4"
         Label4.Size = New Size(169, 38)
         Label4.TabIndex = 2
@@ -99,21 +100,21 @@ Partial Class frmActive
         ' DateTimeDateReturned
         ' 
         DateTimeDateReturned.CalendarFont = New Font("Katibeh", 9.749999F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
-        DateTimeDateReturned.Font = New Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        DateTimeDateReturned.Location = New Point(634, 45)
+        DateTimeDateReturned.Font = New Font("Katibeh", 18F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        DateTimeDateReturned.Location = New Point(620, 46)
         DateTimeDateReturned.Name = "DateTimeDateReturned"
-        DateTimeDateReturned.Size = New Size(398, 39)
+        DateTimeDateReturned.Size = New Size(398, 36)
         DateTimeDateReturned.TabIndex = 1
         ' 
-        ' lblCostumeName
+        ' lblRent
         ' 
-        lblCostumeName.AutoSize = True
-        lblCostumeName.Font = New Font("Katibeh", 23.9999962F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
-        lblCostumeName.Location = New Point(50, 33)
-        lblCostumeName.Name = "lblCostumeName"
-        lblCostumeName.Size = New Size(168, 38)
-        lblCostumeName.TabIndex = 0
-        lblCostumeName.Text = "Costume Name"
+        lblRent.AutoSize = True
+        lblRent.Font = New Font("Katibeh", 23.9999962F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        lblRent.Location = New Point(46, 44)
+        lblRent.Name = "lblRent"
+        lblRent.Size = New Size(168, 38)
+        lblRent.TabIndex = 0
+        lblRent.Text = "Costume Name"
         ' 
         ' Label2
         ' 
@@ -217,8 +218,8 @@ Partial Class frmActive
         Panel1.ResumeLayout(False)
         Panel2.ResumeLayout(False)
         Panel2.PerformLayout()
-        Panel3.ResumeLayout(False)
-        Panel3.PerformLayout()
+        PanelActiveRental.ResumeLayout(False)
+        PanelActiveRental.PerformLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
@@ -233,8 +234,8 @@ Partial Class frmActive
     Friend WithEvents btnCart As Button
     Friend WithEvents btnShop As Button
     Friend WithEvents Label2 As Label
-    Friend WithEvents Panel3 As Panel
-    Friend WithEvents lblCostumeName As Label
+    Friend WithEvents PanelActiveRental As Panel
+    Friend WithEvents lblRent As Label
     Friend WithEvents DateTimeDateReturned As DateTimePicker
     Friend WithEvents Label4 As Label
     Friend WithEvents btnReturn As Button
