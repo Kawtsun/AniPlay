@@ -15,9 +15,13 @@
         Dim user = RegisteredUsers.FirstOrDefault(Function(u) u.username = username AndAlso u.password = password)
 
         If user IsNot Nothing Then
-            MessageBox.Show($"Welcome, {user.name}!")
+            MessageBox.Show($"Welcome, {user.name}!", "Login Success")
+            Dim dashboard As New frmCostumeDashboard()
+            dashboard.CurrentUser = user
+            Me.Hide()
+            dashboard.Show()
         Else
-            MessageBox.Show("Invalid username or password.")
+            MessageBox.Show("Invalid username or password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
     End Sub
 

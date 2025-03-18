@@ -196,6 +196,7 @@ Partial Class frmLogin
         txtPassword.Font = New Font("Katibeh", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
         txtPassword.Location = New Point(174, 302)
         txtPassword.Name = "txtPassword"
+        txtPassword.PasswordChar = "*"c
         txtPassword.Size = New Size(339, 40)
         txtPassword.TabIndex = 6
         ' 

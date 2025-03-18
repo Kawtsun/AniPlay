@@ -259,6 +259,7 @@ Partial Class frmRegister
         txtPassword.Font = New Font("Katibeh", 20.2499981F)
         txtPassword.Location = New Point(844, 352)
         txtPassword.Name = "txtPassword"
+        txtPassword.PasswordChar = "*"c
         txtPassword.Size = New Size(312, 40)
         txtPassword.TabIndex = 12
         ' 
@@ -267,6 +268,7 @@ Partial Class frmRegister
         txtConfirmPassword.Font = New Font("Katibeh", 20.2499981F)
         txtConfirmPassword.Location = New Point(844, 408)
         txtConfirmPassword.Name = "txtConfirmPassword"
+        txtConfirmPassword.PasswordChar = "*"c
         txtConfirmPassword.Size = New Size(312, 40)
         txtConfirmPassword.TabIndex = 13
         ' 
