@@ -73,7 +73,7 @@
         Dim outerMargin As Integer = 20
         Dim verticalPadding As Integer = 25
         Dim imagesPerRow As Integer = 3
-        Dim imageWidth As Integer = 320 ' Fixed width
+        Dim imageWidth As Integer = 325 ' Fixed width
         Dim imageHeight As Integer = imageWidth * 3 \ 4
         Dim buttonHeight As Integer = 60 ' Button height for consistent design
         Dim innerSpacing As Integer = 20 ' Space between elements
