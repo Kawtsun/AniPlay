@@ -200,6 +200,7 @@ Partial Class frmCostumeDashboard
         ' 
         Label9.AutoSize = True
         Label9.Font = New Font("Magneto", 24F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label9.ForeColor = Color.White
         Label9.Location = New Point(190, 47)
         Label9.Name = "Label9"
         Label9.Size = New Size(165, 41)

@@ -36,5 +36,8 @@
         Me.Hide()
     End Sub
 
-
+    Private Sub lnkLoginHere_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkLoginHere.LinkClicked
+        Me.Hide()
+        frmLogin.Show()
+    End Sub
 End Class
