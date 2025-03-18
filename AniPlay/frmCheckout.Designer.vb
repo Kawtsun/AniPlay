@@ -23,13 +23,17 @@ Partial Class frmCheckout
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Panel1 = New Panel()
-        PanelCheckout = New Panel()
+        PanelCheckoutList = New Panel()
+        lblSubTotal = New Label()
+        lblDuration = New Label()
+        lblDiscount = New Label()
+        btnMinus = New Button()
+        btnAdd = New Button()
+        Label12 = New Label()
         btnProceed = New Button()
         txtEmail = New TextBox()
         Label11 = New Label()
-        txtSubTotal = New TextBox()
         Label10 = New Label()
-        txtDiscount = New TextBox()
         Label9 = New Label()
         DateTimeUntil = New DateTimePicker()
         Label8 = New Label()
@@ -50,46 +54,114 @@ Partial Class frmCheckout
         btnShop = New Button()
         Label1 = New Label()
         Panel1.SuspendLayout()
-        PanelCheckout.SuspendLayout()
+        PanelCheckoutList.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Panel1
         ' 
         Panel1.BackColor = Color.DarkSalmon
-        Panel1.Controls.Add(PanelCheckout)
+        Panel1.Controls.Add(PanelCheckoutList)
         Panel1.Location = New Point(0, 142)
         Panel1.Name = "Panel1"
         Panel1.Size = New Size(1263, 542)
         Panel1.TabIndex = 0
         ' 
-        ' PanelCheckout
+        ' PanelCheckoutList
         ' 
-        PanelCheckout.BackColor = Color.Teal
-        PanelCheckout.Controls.Add(btnProceed)
-        PanelCheckout.Controls.Add(txtEmail)
-        PanelCheckout.Controls.Add(Label11)
-        PanelCheckout.Controls.Add(txtSubTotal)
-        PanelCheckout.Controls.Add(Label10)
-        PanelCheckout.Controls.Add(txtDiscount)
-        PanelCheckout.Controls.Add(Label9)
-        PanelCheckout.Controls.Add(DateTimeUntil)
-        PanelCheckout.Controls.Add(Label8)
-        PanelCheckout.Controls.Add(DateTimeFrom)
-        PanelCheckout.Controls.Add(txtAddress)
-        PanelCheckout.Controls.Add(txtContactNo)
-        PanelCheckout.Controls.Add(txtName)
-        PanelCheckout.Controls.Add(Label7)
-        PanelCheckout.Controls.Add(Label6)
-        PanelCheckout.Controls.Add(Label5)
-        PanelCheckout.Controls.Add(Label4)
-        PanelCheckout.Controls.Add(Label3)
-        PanelCheckout.Controls.Add(Label2)
-        PanelCheckout.ForeColor = Color.White
-        PanelCheckout.Location = New Point(12, 25)
-        PanelCheckout.Name = "PanelCheckout"
-        PanelCheckout.Size = New Size(1240, 502)
-        PanelCheckout.TabIndex = 0
+        PanelCheckoutList.BackColor = Color.Teal
+        PanelCheckoutList.Controls.Add(lblSubTotal)
+        PanelCheckoutList.Controls.Add(lblDuration)
+        PanelCheckoutList.Controls.Add(lblDiscount)
+        PanelCheckoutList.Controls.Add(btnMinus)
+        PanelCheckoutList.Controls.Add(btnAdd)
+        PanelCheckoutList.Controls.Add(Label12)
+        PanelCheckoutList.Controls.Add(btnProceed)
+        PanelCheckoutList.Controls.Add(txtEmail)
+        PanelCheckoutList.Controls.Add(Label11)
+        PanelCheckoutList.Controls.Add(Label10)
+        PanelCheckoutList.Controls.Add(Label9)
+        PanelCheckoutList.Controls.Add(DateTimeUntil)
+        PanelCheckoutList.Controls.Add(Label8)
+        PanelCheckoutList.Controls.Add(DateTimeFrom)
+        PanelCheckoutList.Controls.Add(txtAddress)
+        PanelCheckoutList.Controls.Add(txtContactNo)
+        PanelCheckoutList.Controls.Add(txtName)
+        PanelCheckoutList.Controls.Add(Label7)
+        PanelCheckoutList.Controls.Add(Label6)
+        PanelCheckoutList.Controls.Add(Label5)
+        PanelCheckoutList.Controls.Add(Label4)
+        PanelCheckoutList.Controls.Add(Label3)
+        PanelCheckoutList.Controls.Add(Label2)
+        PanelCheckoutList.ForeColor = Color.White
+        PanelCheckoutList.Location = New Point(12, 25)
+        PanelCheckoutList.Name = "PanelCheckoutList"
+        PanelCheckoutList.Size = New Size(1240, 502)
+        PanelCheckoutList.TabIndex = 0
+        ' 
+        ' lblSubTotal
+        ' 
+        lblSubTotal.BackColor = Color.White
+        lblSubTotal.Font = New Font("Katibeh", 18F)
+        lblSubTotal.ForeColor = Color.Black
+        lblSubTotal.Location = New Point(766, 311)
+        lblSubTotal.Name = "lblSubTotal"
+        lblSubTotal.Size = New Size(224, 36)
+        lblSubTotal.TabIndex = 24
+        ' 
+        ' lblDuration
+        ' 
+        lblDuration.BackColor = Color.White
+        lblDuration.Font = New Font("Katibeh", 18F)
+        lblDuration.ForeColor = Color.Black
+        lblDuration.Location = New Point(766, 261)
+        lblDuration.Name = "lblDuration"
+        lblDuration.Size = New Size(224, 36)
+        lblDuration.TabIndex = 23
+        ' 
+        ' lblDiscount
+        ' 
+        lblDiscount.BackColor = Color.White
+        lblDiscount.Font = New Font("Katibeh", 18F)
+        lblDiscount.ForeColor = Color.Black
+        lblDiscount.Location = New Point(766, 210)
+        lblDiscount.Name = "lblDiscount"
+        lblDiscount.Size = New Size(224, 36)
+        lblDiscount.TabIndex = 22
+        ' 
+        ' btnMinus
+        ' 
+        btnMinus.BackColor = Color.MediumSeaGreen
+        btnMinus.Font = New Font("Arial Narrow", 20.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        btnMinus.ForeColor = Color.White
+        btnMinus.Location = New Point(1042, 258)
+        btnMinus.Name = "btnMinus"
+        btnMinus.Size = New Size(40, 40)
+        btnMinus.TabIndex = 21
+        btnMinus.Text = "-"
+        btnMinus.UseVisualStyleBackColor = False
+        ' 
+        ' btnAdd
+        ' 
+        btnAdd.BackColor = Color.MediumSeaGreen
+        btnAdd.Font = New Font("Arial Narrow", 20.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        btnAdd.ForeColor = Color.White
+        btnAdd.Location = New Point(996, 258)
+        btnAdd.Name = "btnAdd"
+        btnAdd.Size = New Size(40, 40)
+        btnAdd.TabIndex = 20
+        btnAdd.Text = "+"
+        btnAdd.UseVisualStyleBackColor = False
+        ' 
+        ' Label12
+        ' 
+        Label12.AutoSize = True
+        Label12.Font = New Font("Katibeh", 21.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        Label12.Location = New Point(647, 262)
+        Label12.Name = "Label12"
+        Label12.Size = New Size(98, 35)
+        Label12.TabIndex = 18
+        Label12.Text = "Duration"
         ' 
         ' btnProceed
         ' 
@@ -106,10 +178,12 @@ Partial Class frmCheckout
         ' 
         ' txtEmail
         ' 
-        txtEmail.Font = New Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtEmail.Enabled = False
+        txtEmail.Font = New Font("Katibeh", 18F)
         txtEmail.Location = New Point(188, 160)
         txtEmail.Name = "txtEmail"
-        txtEmail.Size = New Size(384, 39)
+        txtEmail.ReadOnly = True
+        txtEmail.Size = New Size(384, 36)
         txtEmail.TabIndex = 17
         ' 
         ' Label11
@@ -122,31 +196,15 @@ Partial Class frmCheckout
         Label11.TabIndex = 16
         Label11.Text = "Email"
         ' 
-        ' txtSubTotal
-        ' 
-        txtSubTotal.Font = New Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        txtSubTotal.Location = New Point(766, 262)
-        txtSubTotal.Name = "txtSubTotal"
-        txtSubTotal.Size = New Size(384, 39)
-        txtSubTotal.TabIndex = 15
-        ' 
         ' Label10
         ' 
         Label10.AutoSize = True
         Label10.Font = New Font("Katibeh", 21.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
-        Label10.Location = New Point(647, 262)
+        Label10.Location = New Point(647, 311)
         Label10.Name = "Label10"
         Label10.Size = New Size(105, 35)
         Label10.TabIndex = 14
         Label10.Text = "Sub Total:"
-        ' 
-        ' txtDiscount
-        ' 
-        txtDiscount.Font = New Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        txtDiscount.Location = New Point(766, 208)
-        txtDiscount.Name = "txtDiscount"
-        txtDiscount.Size = New Size(224, 39)
-        txtDiscount.TabIndex = 13
         ' 
         ' Label9
         ' 
@@ -160,7 +218,7 @@ Partial Class frmCheckout
         ' 
         ' DateTimeUntil
         ' 
-        DateTimeUntil.Font = New Font("Katibeh", 18F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        DateTimeUntil.Font = New Font("Katibeh", 18F)
         DateTimeUntil.Location = New Point(766, 160)
         DateTimeUntil.Name = "DateTimeUntil"
         DateTimeUntil.Size = New Size(384, 36)
@@ -178,7 +236,7 @@ Partial Class frmCheckout
         ' 
         ' DateTimeFrom
         ' 
-        DateTimeFrom.Font = New Font("Katibeh", 18F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        DateTimeFrom.Font = New Font("Katibeh", 18F)
         DateTimeFrom.Location = New Point(766, 108)
         DateTimeFrom.Name = "DateTimeFrom"
         DateTimeFrom.Size = New Size(384, 36)
@@ -186,26 +244,28 @@ Partial Class frmCheckout
         ' 
         ' txtAddress
         ' 
-        txtAddress.Font = New Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtAddress.Font = New Font("Katibeh", 18F)
         txtAddress.Location = New Point(188, 212)
         txtAddress.Name = "txtAddress"
-        txtAddress.Size = New Size(384, 39)
+        txtAddress.Size = New Size(384, 36)
         txtAddress.TabIndex = 8
         ' 
         ' txtContactNo
         ' 
-        txtContactNo.Font = New Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtContactNo.Font = New Font("Katibeh", 18F)
         txtContactNo.Location = New Point(188, 262)
         txtContactNo.Name = "txtContactNo"
-        txtContactNo.Size = New Size(384, 39)
+        txtContactNo.Size = New Size(384, 36)
         txtContactNo.TabIndex = 7
         ' 
         ' txtName
         ' 
-        txtName.Font = New Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtName.Enabled = False
+        txtName.Font = New Font("Katibeh", 18F)
         txtName.Location = New Point(188, 109)
         txtName.Name = "txtName"
-        txtName.Size = New Size(384, 39)
+        txtName.ReadOnly = True
+        txtName.Size = New Size(384, 36)
         txtName.TabIndex = 6
         ' 
         ' Label7
@@ -359,8 +419,8 @@ Partial Class frmCheckout
         Name = "frmCheckout"
         Text = "Checkout"
         Panel1.ResumeLayout(False)
-        PanelCheckout.ResumeLayout(False)
-        PanelCheckout.PerformLayout()
+        PanelCheckoutList.ResumeLayout(False)
+        PanelCheckoutList.PerformLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
@@ -373,7 +433,7 @@ Partial Class frmCheckout
     Friend WithEvents btnCart As Button
     Friend WithEvents btnShop As Button
     Friend WithEvents Label1 As Label
-    Friend WithEvents PanelCheckout As Panel
+    Friend WithEvents PanelCheckoutList As Panel
     Friend WithEvents Label2 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents Label6 As Label
@@ -387,10 +447,16 @@ Partial Class frmCheckout
     Friend WithEvents DateTimeUntil As DateTimePicker
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
-    Friend WithEvents txtDiscount As TextBox
-    Friend WithEvents txtSubTotal As TextBox
+    Friend WithEvents Label13 As TextBox
     Friend WithEvents Label10 As Label
     Friend WithEvents btnProceed As Button
     Friend WithEvents txtEmail As TextBox
     Friend WithEvents Label11 As Label
+    Friend WithEvents btnMinus As Button
+    Friend WithEvents btnAdd As Button
+    Friend WithEvents Label12 As Label
+    Friend WithEvents lblDiscount As Label
+    Friend WithEvents lblDuration As Label
+    Friend WithEvents lblSubTotal As Label
+
 End Class

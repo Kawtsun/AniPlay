@@ -18,7 +18,6 @@
     Private Sub btnShop_Click(sender As Object, e As EventArgs) Handles btnShop.Click
         ' Set Shop button as active
         SetActiveNavButton(btnShop)
-
         Me.Hide()
         frmCostumeDashboard.Show()
     End Sub
@@ -31,16 +30,12 @@
     Private Sub btnActiveList_Click(sender As Object, e As EventArgs) Handles btnActiveList.Click
         ' Set Active List button as active
         SetActiveNavButton(btnActiveList)
-
-        ' Example: Show a message or navigate to Active List
         MessageBox.Show("Navigating to Active List page...")
     End Sub
 
     Private Sub btnAbout_Click(sender As Object, e As EventArgs) Handles btnAbout.Click
         ' Set About button as active
         SetActiveNavButton(btnAbout)
-
-        ' Example: Show a message or navigate to About page
         MessageBox.Show("Navigating to About page...")
     End Sub
 
@@ -101,7 +96,7 @@
 
             ' Add Label for the item price
             Dim priceLabel As New Label() With {
-                .Text = item.Price,
+                .Text = $"Price/Day: ₱{item.RentalPricePerDay}",
                 .Font = New Font("Katibeh", 16, FontStyle.Regular), ' Increased font size
                 .ForeColor = Color.Black,
                 .AutoSize = False,
@@ -137,8 +132,9 @@
             PanelCartList.Controls.Add(itemPanel)
         Next
 
-        ' Add "Checkout" Button at the bottom of the list
-        Dim checkoutButton As New Button() With {
+        ' Add "Checkout" Button at the bottom of the list if there are items in the cart
+        If cartData.Count > 0 Then
+            Dim checkoutButton As New Button() With {
             .Text = "Checkout",
             .Width = panelWidth,
             .Height = 50,
@@ -148,9 +144,20 @@
             .Top = (cartData.Count * (panelHeight + verticalSpacing)) + outerMargin,
             .Left = outerMargin
         }
-        AddHandler checkoutButton.Click, Sub(senderButton, eArgs)
-                                             MessageBox.Show("Proceeding to checkout!")
-                                         End Sub
-        PanelCartList.Controls.Add(checkoutButton)
+            AddHandler checkoutButton.Click, Sub(senderButton, eArgs)
+                                                 ' Compute the initial subtotal
+                                                 Dim subtotal As Decimal = 0
+                                                 For Each item In cartData
+                                                     subtotal += item.RentalPricePerDay ' Calculate for 1 day
+                                                 Next
+
+                                                 ' Navigate to Checkout form
+                                                 Dim checkoutForm As New frmCheckout()
+                                                 checkoutForm.LoadCheckoutData(cartData, subtotal) ' Pass data
+                                                 checkoutForm.Show()
+                                                 Me.Hide()
+                                             End Sub
+            PanelCartList.Controls.Add(checkoutButton)
+        End If
     End Sub
 End Class
