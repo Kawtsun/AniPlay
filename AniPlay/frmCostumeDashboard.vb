@@ -10,7 +10,7 @@
     Private Class CostumeItem
         Public Property Name As String
         Public Property ImagePath As String
-        Public Property Price As String
+        Public Property RentalPricePerDay As Decimal ' Store price as Decimal
         Public Property Category As String
     End Class
 
@@ -18,17 +18,19 @@
     Public Class CartItem
         Public Property Name As String
         Public Property ImagePath As String
-        Public Property Price As String
+        Public Property RentalPricePerDay As Decimal ' Store price per day
+        Public Property RentalDays As Integer ' Number of rental days
     End Class
 
     ' Initialize the form
     Private Sub frmCostumeDashboard_Load(sender As Object, e As EventArgs) Handles Me.Load
         ' Display welcome message
         If CurrentUser IsNot Nothing Then
-            lblUser.Text = $"Welcome, {CurrentUser.name}"
+            lblUser.Text = $"Welcome, {CurrentUser.username}"
         Else
             lblUser.Text = "Welcome, User!"
         End If
+
 
         ' Initialize costume data
         InitializeCostumeData()
@@ -45,14 +47,14 @@
         Dim basePath As String = AppDomain.CurrentDomain.BaseDirectory & "Resources\"
 
         costumeData = New List(Of CostumeItem) From {
-            New CostumeItem With {.Name = "AI", .ImagePath = basePath & "ai.jpg", .Price = "₱1,500", .Category = "All"},
-            New CostumeItem With {.Name = "Frieren", .ImagePath = basePath & "frieren.jpg", .Price = "₱1,800", .Category = "Women"},
-            New CostumeItem With {.Name = "Homura", .ImagePath = basePath & "homura.jpg", .Price = "₱1,200", .Category = "Women"},
-            New CostumeItem With {.Name = "Junko", .ImagePath = basePath & "junko.jpg", .Price = "₱2,000", .Category = "Women"},
-            New CostumeItem With {.Name = "Kita", .ImagePath = basePath & "kita.jpg", .Price = "₱1,700", .Category = "Men"},
-            New CostumeItem With {.Name = "Madoka", .ImagePath = basePath & "madoka.jpg", .Price = "₱2,300", .Category = "Accessories"},
-            New CostumeItem With {.Name = "McQueen", .ImagePath = basePath & "mcqueen.jpg", .Price = "₱1,600", .Category = "Men"},
-            New CostumeItem With {.Name = "Mortis", .ImagePath = basePath & "mortis.jpg", .Price = "₱2,100", .Category = "Accessories"}
+            New CostumeItem With {.Name = "AI", .ImagePath = basePath & "ai.jpg", .RentalPricePerDay = 1500, .Category = "All"},
+            New CostumeItem With {.Name = "Frieren", .ImagePath = basePath & "frieren.jpg", .RentalPricePerDay = 1800, .Category = "Women"},
+            New CostumeItem With {.Name = "Homura", .ImagePath = basePath & "homura.jpg", .RentalPricePerDay = 1200, .Category = "Women"},
+            New CostumeItem With {.Name = "Junko", .ImagePath = basePath & "junko.jpg", .RentalPricePerDay = 2000, .Category = "Women"},
+            New CostumeItem With {.Name = "Kita", .ImagePath = basePath & "kita.jpg", .RentalPricePerDay = 1700, .Category = "Men"},
+            New CostumeItem With {.Name = "Madoka", .ImagePath = basePath & "madoka.jpg", .RentalPricePerDay = 2300, .Category = "Accessories"},
+            New CostumeItem With {.Name = "McQueen", .ImagePath = basePath & "mcqueen.jpg", .RentalPricePerDay = 1600, .Category = "Men"},
+            New CostumeItem With {.Name = "Mortis", .ImagePath = basePath & "mortis.jpg", .RentalPricePerDay = 2100, .Category = "Accessories"}
         }
     End Sub
 
@@ -72,7 +74,6 @@
         activeButton.Font = New Font("Katibeh", 20, FontStyle.Bold) ' Bold font for active button
         activeButton.TextAlign = ContentAlignment.TopCenter
     End Sub
-
 
     ' Event handler for category buttons
     Private Sub btnCategory_Click(sender As Object, e As EventArgs) Handles btnAll.Click, btnWomen.Click, btnMen.Click, btnAccessories.Click
@@ -141,29 +142,28 @@
             }
             itemPanel.Controls.Add(nameLabel)
 
-            ' Add Label for price
-            Dim priceLabel As New Label() With {
-                .Text = costume.Price,
+            ' Add Label for Rental Price/Day
+            Dim rentalPriceLabel As New Label() With {
+                .Text = $"Rental Price/Day: ₱{costume.RentalPricePerDay}",
                 .Font = New Font("Katibeh", 16, FontStyle.Regular),
                 .ForeColor = Color.Black,
+                .Height = 30,
                 .Width = imageWidth,
-                .TextAlign = ContentAlignment.MiddleCenter,
-                .Top = nameLabel.Top + nameLabel.Height + innerSpacing
+                .Top = nameLabel.Top + nameLabel.Height + innerSpacing,
+                .TextAlign = ContentAlignment.MiddleCenter
             }
-            itemPanel.Controls.Add(priceLabel)
+            itemPanel.Controls.Add(rentalPriceLabel)
 
             ' Add "Add to Cart" Button
             Dim addButton As New Button() With {
                 .Text = "Add to Cart",
                 .Width = imageWidth,
                 .Height = buttonHeight,
-                .Left = 0,
-                .Top = itemPanel.Height - buttonHeight,
                 .BackColor = Color.MediumSeaGreen,
                 .ForeColor = Color.White,
-                .FlatStyle = FlatStyle.Standard,
+                .FlatStyle = FlatStyle.Flat,
                 .Font = New Font("Katibeh", 18, FontStyle.Regular),
-                .Cursor = Cursors.Hand,
+                .Top = rentalPriceLabel.Top + rentalPriceLabel.Height + innerSpacing,
                 .TextAlign = ContentAlignment.MiddleCenter
             }
             AddHandler addButton.Click, Sub(senderButton, eArgs)
@@ -176,32 +176,33 @@
         Next
     End Sub
 
-    ' Add an item to the cart with validation for duplicates
+    ' Add an item to the cart
     Private Sub AddToCart(costume As CostumeItem)
-        ' Check if the costume is already in the cart
-        Dim isAlreadyInCart As Boolean = cartData.Any(Function(item) item.Name = costume.Name)
-
-        If isAlreadyInCart Then
-            ' Show a warning if the item is already in the cart
-            MessageBox.Show($"The costume '{costume.Name}' is already in the cart!", "Duplicate Item", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ' Check for duplicates
+        If cartData.Any(Function(c) c.Name = costume.Name) Then
+            MessageBox.Show($"{costume.Name} is already in the cart!", "Duplicate Item", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         Else
-            ' Add the costume to the cart
+            ' Add item to cart
             cartData.Add(New CartItem With {
                 .Name = costume.Name,
                 .ImagePath = costume.ImagePath,
-                .Price = costume.Price
+                .RentalPricePerDay = costume.RentalPricePerDay,
+                .RentalDays = 1 ' Default to 1 day
             })
 
-            ' Update the cart display in frmCart
             frmCartInstance.UpdateCartDisplay(cartData)
-
-            ' Show confirmation message
-            MessageBox.Show($"{costume.Name} has been added to your cart!", "Item Added", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show($"{costume.Name} added to the cart!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
 
-    ' Show the Cart form
+    ' Navigate to Cart
     Private Sub btnCart_Click(sender As Object, e As EventArgs) Handles btnCart.Click
+        ' Hide the dashboard and display the Cart form
+
+        frmCartInstance.Username = CurrentUser.username
+        frmCartInstance.Name = CurrentUser.name
+        frmCartInstance.Email = CurrentUser.email
+
         Me.Hide()
         frmCartInstance.Show()
     End Sub

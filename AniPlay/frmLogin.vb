@@ -15,7 +15,7 @@
         Dim user = RegisteredUsers.FirstOrDefault(Function(u) u.username = username AndAlso u.password = password)
 
         If user IsNot Nothing Then
-            MessageBox.Show($"Welcome, {user.name}!", "Login Success")
+            MessageBox.Show($"Welcome, {user.username}!", "Login Success")
             Dim dashboard As New frmCostumeDashboard()
             dashboard.CurrentUser = user
             Me.Hide()
