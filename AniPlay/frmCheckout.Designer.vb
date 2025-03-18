@@ -24,6 +24,8 @@ Partial Class frmCheckout
     Private Sub InitializeComponent()
         Panel1 = New Panel()
         PanelCheckoutList = New Panel()
+        lblEmail = New Label()
+        lblName = New Label()
         lblDiscount = New Label()
         Label14 = New Label()
         lblSubTotal = New Label()
@@ -31,7 +33,6 @@ Partial Class frmCheckout
         lblFinalTotal = New Label()
         Label12 = New Label()
         btnProceed = New Button()
-        txtEmail = New TextBox()
         Label11 = New Label()
         Label10 = New Label()
         LabelTOtalPrice = New Label()
@@ -40,7 +41,6 @@ Partial Class frmCheckout
         DateTimeFrom = New DateTimePicker()
         txtAddress = New TextBox()
         txtContactNo = New TextBox()
-        txtName = New TextBox()
         Label7 = New Label()
         Label6 = New Label()
         Label5 = New Label()
@@ -53,6 +53,7 @@ Partial Class frmCheckout
         btnCart = New Button()
         btnShop = New Button()
         Label1 = New Label()
+        lblUser = New Label()
         Panel1.SuspendLayout()
         PanelCheckoutList.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
@@ -70,6 +71,8 @@ Partial Class frmCheckout
         ' PanelCheckoutList
         ' 
         PanelCheckoutList.BackColor = Color.Teal
+        PanelCheckoutList.Controls.Add(lblEmail)
+        PanelCheckoutList.Controls.Add(lblName)
         PanelCheckoutList.Controls.Add(lblDiscount)
         PanelCheckoutList.Controls.Add(Label14)
         PanelCheckoutList.Controls.Add(lblSubTotal)
@@ -77,7 +80,6 @@ Partial Class frmCheckout
         PanelCheckoutList.Controls.Add(lblFinalTotal)
         PanelCheckoutList.Controls.Add(Label12)
         PanelCheckoutList.Controls.Add(btnProceed)
-        PanelCheckoutList.Controls.Add(txtEmail)
         PanelCheckoutList.Controls.Add(Label11)
         PanelCheckoutList.Controls.Add(Label10)
         PanelCheckoutList.Controls.Add(LabelTOtalPrice)
@@ -86,7 +88,6 @@ Partial Class frmCheckout
         PanelCheckoutList.Controls.Add(DateTimeFrom)
         PanelCheckoutList.Controls.Add(txtAddress)
         PanelCheckoutList.Controls.Add(txtContactNo)
-        PanelCheckoutList.Controls.Add(txtName)
         PanelCheckoutList.Controls.Add(Label7)
         PanelCheckoutList.Controls.Add(Label6)
         PanelCheckoutList.Controls.Add(Label5)
@@ -98,6 +99,26 @@ Partial Class frmCheckout
         PanelCheckoutList.Name = "PanelCheckoutList"
         PanelCheckoutList.Size = New Size(1240, 502)
         PanelCheckoutList.TabIndex = 0
+        ' 
+        ' lblEmail
+        ' 
+        lblEmail.BackColor = Color.White
+        lblEmail.Font = New Font("Katibeh", 18F)
+        lblEmail.ForeColor = Color.Black
+        lblEmail.Location = New Point(188, 160)
+        lblEmail.Name = "lblEmail"
+        lblEmail.Size = New Size(384, 36)
+        lblEmail.TabIndex = 28
+        ' 
+        ' lblName
+        ' 
+        lblName.BackColor = Color.White
+        lblName.Font = New Font("Katibeh", 18F)
+        lblName.ForeColor = Color.Black
+        lblName.Location = New Point(188, 108)
+        lblName.Name = "lblName"
+        lblName.Size = New Size(384, 36)
+        lblName.TabIndex = 27
         ' 
         ' lblDiscount
         ' 
@@ -172,16 +193,6 @@ Partial Class frmCheckout
         btnProceed.TextAlign = ContentAlignment.TopCenter
         btnProceed.UseVisualStyleBackColor = False
         ' 
-        ' txtEmail
-        ' 
-        txtEmail.Enabled = False
-        txtEmail.Font = New Font("Katibeh", 18F)
-        txtEmail.Location = New Point(188, 160)
-        txtEmail.Name = "txtEmail"
-        txtEmail.ReadOnly = True
-        txtEmail.Size = New Size(384, 36)
-        txtEmail.TabIndex = 17
-        ' 
         ' Label11
         ' 
         Label11.AutoSize = True
@@ -255,16 +266,6 @@ Partial Class frmCheckout
         txtContactNo.Size = New Size(384, 36)
         txtContactNo.TabIndex = 7
         ' 
-        ' txtName
-        ' 
-        txtName.Enabled = False
-        txtName.Font = New Font("Katibeh", 18F)
-        txtName.Location = New Point(188, 109)
-        txtName.Name = "txtName"
-        txtName.ReadOnly = True
-        txtName.Size = New Size(384, 36)
-        txtName.TabIndex = 6
-        ' 
         ' Label7
         ' 
         Label7.AutoSize = True
@@ -330,7 +331,7 @@ Partial Class frmCheckout
         ' PictureBox1
         ' 
         PictureBox1.Image = My.Resources.Resources.logo2
-        PictureBox1.Location = New Point(46, 24)
+        PictureBox1.Location = New Point(47, 18)
         PictureBox1.Name = "PictureBox1"
         PictureBox1.Size = New Size(100, 100)
         PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
@@ -342,7 +343,7 @@ Partial Class frmCheckout
         btnAbout.BackColor = Color.MediumSeaGreen
         btnAbout.Font = New Font("Katibeh", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
         btnAbout.ForeColor = Color.White
-        btnAbout.Location = New Point(1133, 50)
+        btnAbout.Location = New Point(1133, 47)
         btnAbout.Name = "btnAbout"
         btnAbout.Size = New Size(119, 51)
         btnAbout.TabIndex = 2
@@ -355,7 +356,7 @@ Partial Class frmCheckout
         btnActive.BackColor = Color.MediumSeaGreen
         btnActive.Font = New Font("Katibeh", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
         btnActive.ForeColor = Color.White
-        btnActive.Location = New Point(1008, 50)
+        btnActive.Location = New Point(1008, 47)
         btnActive.Name = "btnActive"
         btnActive.Size = New Size(119, 51)
         btnActive.TabIndex = 3
@@ -368,7 +369,7 @@ Partial Class frmCheckout
         btnCart.BackColor = Color.MediumSeaGreen
         btnCart.Font = New Font("Katibeh", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
         btnCart.ForeColor = Color.White
-        btnCart.Location = New Point(883, 50)
+        btnCart.Location = New Point(883, 47)
         btnCart.Name = "btnCart"
         btnCart.Size = New Size(119, 51)
         btnCart.TabIndex = 4
@@ -381,7 +382,7 @@ Partial Class frmCheckout
         btnShop.BackColor = Color.MediumSeaGreen
         btnShop.Font = New Font("Katibeh", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
         btnShop.ForeColor = Color.White
-        btnShop.Location = New Point(758, 50)
+        btnShop.Location = New Point(758, 47)
         btnShop.Name = "btnShop"
         btnShop.Size = New Size(119, 51)
         btnShop.TabIndex = 5
@@ -394,11 +395,22 @@ Partial Class frmCheckout
         Label1.AutoSize = True
         Label1.Font = New Font("Magneto", 24F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.ForeColor = Color.White
-        Label1.Location = New Point(177, 50)
+        Label1.Location = New Point(190, 47)
         Label1.Name = "Label1"
         Label1.Size = New Size(165, 41)
         Label1.TabIndex = 6
         Label1.Text = "AniPlay"
+        ' 
+        ' lblUser
+        ' 
+        lblUser.Font = New Font("Katibeh", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        lblUser.ForeColor = Color.White
+        lblUser.Location = New Point(758, 7)
+        lblUser.Name = "lblUser"
+        lblUser.Size = New Size(494, 35)
+        lblUser.TabIndex = 7
+        lblUser.Text = "Label1"
+        lblUser.TextAlign = ContentAlignment.TopRight
         ' 
         ' frmCheckout
         ' 
@@ -406,6 +418,7 @@ Partial Class frmCheckout
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.Teal
         ClientSize = New Size(1264, 681)
+        Controls.Add(lblUser)
         Controls.Add(Label1)
         Controls.Add(btnShop)
         Controls.Add(btnCart)
@@ -414,6 +427,7 @@ Partial Class frmCheckout
         Controls.Add(PictureBox1)
         Controls.Add(Panel1)
         Name = "frmCheckout"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Checkout"
         Panel1.ResumeLayout(False)
         PanelCheckoutList.ResumeLayout(False)
@@ -437,7 +451,6 @@ Partial Class frmCheckout
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents txtName As TextBox
     Friend WithEvents DateTimeFrom As DateTimePicker
     Friend WithEvents txtAddress As TextBox
     Friend WithEvents txtContactNo As TextBox
@@ -447,7 +460,6 @@ Partial Class frmCheckout
     Friend WithEvents Label13 As TextBox
     Friend WithEvents Label10 As Label
     Friend WithEvents btnProceed As Button
-    Friend WithEvents txtEmail As TextBox
     Friend WithEvents Label11 As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents lblFinalTotal As Label
@@ -455,5 +467,8 @@ Partial Class frmCheckout
     Friend WithEvents lblSubTotal As Label
     Friend WithEvents lblDiscount As Label
     Friend WithEvents Label14 As Label
+    Friend WithEvents lblUser As Label
+    Friend WithEvents lblEmail As Label
+    Friend WithEvents lblName As Label
 
 End Class

@@ -1,4 +1,7 @@
 ﻿Public Class frmCart
+    Public Property Username As String
+    Public Property Name As String
+    Public Property Email As String
     ' Method to set the active button for navigation
     Private Sub SetActiveNavButton(activeButton As Button)
         ' Reset the appearance of all navigation buttons
@@ -42,6 +45,10 @@
     Private Sub frmCart_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
         ' Set Cart button as active when the form becomes visible
         SetActiveNavButton(btnCart)
+    End Sub
+
+    Private Sub frmCart_Load(sender As Object, e As EventArgs) Handles Me.Load
+        lblUser.Text = $"Welcome, {Username}"
     End Sub
 
     ' Public method to update the cart display
@@ -159,6 +166,9 @@
 
                                                  ' Pass data to the checkout form
                                                  Dim checkoutForm As New frmCheckout()
+                                                 checkoutForm.Username = Username
+                                                 checkoutForm.Name = Name
+                                                 checkoutForm.Email = Email
                                                  checkoutForm.LoadCheckoutData(cartData, subtotal, baseDiscount) ' Pass subtotal and base discount
                                                  checkoutForm.Show()
                                                  Me.Hide()
@@ -166,4 +176,6 @@
             PanelCartList.Controls.Add(checkoutButton)
         End If
     End Sub
+
+
 End Class

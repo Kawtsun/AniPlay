@@ -26,10 +26,11 @@
     Private Sub frmCostumeDashboard_Load(sender As Object, e As EventArgs) Handles Me.Load
         ' Display welcome message
         If CurrentUser IsNot Nothing Then
-            lblUser.Text = $"Welcome, {CurrentUser.name}"
+            lblUser.Text = $"Welcome, {CurrentUser.username}"
         Else
             lblUser.Text = "Welcome, User!"
         End If
+
 
         ' Initialize costume data
         InitializeCostumeData()
@@ -197,6 +198,11 @@
     ' Navigate to Cart
     Private Sub btnCart_Click(sender As Object, e As EventArgs) Handles btnCart.Click
         ' Hide the dashboard and display the Cart form
+
+        frmCartInstance.Username = CurrentUser.username
+        frmCartInstance.Name = CurrentUser.name
+        frmCartInstance.Email = CurrentUser.email
+
         Me.Hide()
         frmCartInstance.Show()
     End Sub

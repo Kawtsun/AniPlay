@@ -1,4 +1,8 @@
 ﻿Public Class frmCheckout
+    Public Property Username As String
+    Public Property Name As String
+    Public Property Email As String
+
     Private checkoutData As List(Of frmCostumeDashboard.CartItem)
     Private baseTotalPrice As Decimal ' Total price for 1 day before discounts
     Private baseDiscountRate As Decimal ' Fixed base discount (5%)
@@ -67,6 +71,13 @@
 
     ' Form load event
     Private Sub frmCheckout_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
+        lblUser.Text = $"Welcome, {Username}"
+        lblName.Text = Name
+        lblEmail.Text = Email
+
+
         ' Initialize the date pickers
         DateTimeFrom.Value = DateTime.Now.Date ' Default to today's date
         DateTimeUntil.Value = DateTime.Now.Date ' Default to today's date
