@@ -24,6 +24,8 @@ Partial Class frmCart
     Private Sub InitializeComponent()
         Panel2 = New Panel()
         PanelCartList = New Panel()
+        PictureBox1 = New PictureBox()
+        PictureBox2 = New PictureBox()
         PictureBoxLogo = New PictureBox()
         Label9 = New Label()
         btnAbout = New Button()
@@ -31,8 +33,12 @@ Partial Class frmCart
         btnShop = New Button()
         btnCart = New Button()
         lblUser = New Label()
+        PictureBox3 = New PictureBox()
         Panel2.SuspendLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBoxLogo, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Panel2
@@ -40,7 +46,9 @@ Partial Class frmCart
         Panel2.AutoScroll = True
         Panel2.BackColor = Color.DarkSalmon
         Panel2.BorderStyle = BorderStyle.Fixed3D
+        Panel2.Controls.Add(PictureBox2)
         Panel2.Controls.Add(PanelCartList)
+        Panel2.Controls.Add(PictureBox1)
         Panel2.Location = New Point(-1, 139)
         Panel2.Name = "Panel2"
         Panel2.Size = New Size(1263, 542)
@@ -50,10 +58,30 @@ Partial Class frmCart
         ' 
         PanelCartList.AutoScroll = True
         PanelCartList.BackColor = Color.Teal
-        PanelCartList.Location = New Point(291, 20)
+        PanelCartList.Location = New Point(291, 32)
         PanelCartList.Name = "PanelCartList"
         PanelCartList.Size = New Size(675, 496)
         PanelCartList.TabIndex = 0
+        ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.Image = My.Resources.Resources.pngwing_com_8_
+        PictureBox1.Location = New Point(11, 232)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(274, 305)
+        PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBox1.TabIndex = 1
+        PictureBox1.TabStop = False
+        ' 
+        ' PictureBox2
+        ' 
+        PictureBox2.Image = My.Resources.Resources.pngwing_com_6_
+        PictureBox2.Location = New Point(981, 220)
+        PictureBox2.Name = "PictureBox2"
+        PictureBox2.Size = New Size(267, 317)
+        PictureBox2.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBox2.TabIndex = 2
+        PictureBox2.TabStop = False
         ' 
         ' PictureBoxLogo
         ' 
@@ -140,6 +168,16 @@ Partial Class frmCart
         lblUser.Text = "Label1"
         lblUser.TextAlign = ContentAlignment.TopRight
         ' 
+        ' PictureBox3
+        ' 
+        PictureBox3.Image = My.Resources.Resources.frieren1212
+        PictureBox3.Location = New Point(309, -4)
+        PictureBox3.Name = "PictureBox3"
+        PictureBox3.Size = New Size(475, 147)
+        PictureBox3.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBox3.TabIndex = 31
+        PictureBox3.TabStop = False
+        ' 
         ' frmCart
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -154,11 +192,15 @@ Partial Class frmCart
         Controls.Add(Label9)
         Controls.Add(PictureBoxLogo)
         Controls.Add(Panel2)
+        Controls.Add(PictureBox3)
         Name = "frmCart"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Cart"
         Panel2.ResumeLayout(False)
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBoxLogo, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox3, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -172,4 +214,7 @@ Partial Class frmCart
     Friend WithEvents btnCart As Button
     Friend WithEvents lblUser As Label
     Friend WithEvents PanelCartList As Panel
+    Friend WithEvents PictureBox3 As PictureBox
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

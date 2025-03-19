@@ -54,6 +54,7 @@ Partial Class frmActive
         btnCart = New Button()
         btnShop = New Button()
         lblUser = New Label()
+        PictureBox3 = New PictureBox()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
         PanelActiveRental.SuspendLayout()
@@ -61,6 +62,7 @@ Partial Class frmActive
         PanelListItem.SuspendLayout()
         CType(DataGridViewItemList, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBoxLogo, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Panel1
@@ -440,6 +442,16 @@ Partial Class frmActive
         lblUser.Text = "Label1"
         lblUser.TextAlign = ContentAlignment.TopRight
         ' 
+        ' PictureBox3
+        ' 
+        PictureBox3.Image = My.Resources.Resources.frieren1212
+        PictureBox3.Location = New Point(309, -4)
+        PictureBox3.Name = "PictureBox3"
+        PictureBox3.Size = New Size(475, 147)
+        PictureBox3.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBox3.TabIndex = 33
+        PictureBox3.TabStop = False
+        ' 
         ' frmActive
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -454,6 +466,7 @@ Partial Class frmActive
         Controls.Add(Label1)
         Controls.Add(PictureBoxLogo)
         Controls.Add(Panel1)
+        Controls.Add(PictureBox3)
         Name = "frmActive"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Active Rental"
@@ -466,6 +479,7 @@ Partial Class frmActive
         PanelListItem.ResumeLayout(False)
         CType(DataGridViewItemList, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBoxLogo, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox3, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -502,4 +516,5 @@ Partial Class frmActive
     Friend WithEvents DataGridViewItemList As DataGridView
     Friend WithEvents Label3 As Label
     Friend WithEvents lblTotal As Label
+    Friend WithEvents PictureBox3 As PictureBox
 End Class

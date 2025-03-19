@@ -48,12 +48,14 @@ Partial Class frmAbout
         btnShop = New Button()
         lblUser = New Label()
         Label13 = New Label()
+        PictureBox3 = New PictureBox()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
         Panel3.SuspendLayout()
         CType(PictureBoxProgrammer2, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBoxProgrammer1, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBoxLogo, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Panel1
@@ -120,7 +122,7 @@ Partial Class frmAbout
         ' Label12
         ' 
         Label12.Font = New Font("Katibeh", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
-        Label12.Location = New Point(631, 261)
+        Label12.Location = New Point(631, 292)
         Label12.Name = "Label12"
         Label12.Size = New Size(433, 34)
         Label12.TabIndex = 12
@@ -130,7 +132,7 @@ Partial Class frmAbout
         ' 
         Label11.AutoSize = True
         Label11.Font = New Font("Katibeh", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(178))
-        Label11.Location = New Point(631, 230)
+        Label11.Location = New Point(631, 261)
         Label11.Name = "Label11"
         Label11.Size = New Size(140, 29)
         Label11.TabIndex = 11
@@ -139,7 +141,7 @@ Partial Class frmAbout
         ' Label10
         ' 
         Label10.Font = New Font("Katibeh", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
-        Label10.Location = New Point(631, 205)
+        Label10.Location = New Point(631, 217)
         Label10.Name = "Label10"
         Label10.Size = New Size(433, 34)
         Label10.TabIndex = 10
@@ -149,7 +151,7 @@ Partial Class frmAbout
         ' 
         Label9.AutoSize = True
         Label9.Font = New Font("Katibeh", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(178))
-        Label9.Location = New Point(631, 176)
+        Label9.Location = New Point(631, 188)
         Label9.Name = "Label9"
         Label9.Size = New Size(140, 29)
         Label9.TabIndex = 9
@@ -207,9 +209,9 @@ Partial Class frmAbout
         ' Label4
         ' 
         Label4.Font = New Font("Katibeh", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
-        Label4.Location = New Point(30, 61)
+        Label4.Location = New Point(22, 61)
         Label4.Name = "Label4"
-        Label4.Size = New Size(453, 41)
+        Label4.Size = New Size(534, 41)
         Label4.TabIndex = 2
         Label4.Text = "AniPlay – Where Your Favorite Characters Come To Life!"
         Label4.TextAlign = ContentAlignment.TopCenter
@@ -230,9 +232,9 @@ Partial Class frmAbout
         Label2.Font = New Font("Katibeh", 23.9999962F, FontStyle.Bold, GraphicsUnit.Point, CByte(178))
         Label2.Location = New Point(13, 11)
         Label2.Name = "Label2"
-        Label2.Size = New Size(123, 38)
+        Label2.Size = New Size(117, 38)
         Label2.TabIndex = 0
-        Label2.Text = "About Us:"
+        Label2.Text = "About Us"
         ' 
         ' Label7
         ' 
@@ -328,6 +330,16 @@ Partial Class frmAbout
         Label13.TabIndex = 9
         Label13.Text = "AniPlay"
         ' 
+        ' PictureBox3
+        ' 
+        PictureBox3.Image = My.Resources.Resources.frieren1212
+        PictureBox3.Location = New Point(309, -4)
+        PictureBox3.Name = "PictureBox3"
+        PictureBox3.Size = New Size(475, 147)
+        PictureBox3.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBox3.TabIndex = 34
+        PictureBox3.TabStop = False
+        ' 
         ' frmAbout
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -342,6 +354,7 @@ Partial Class frmAbout
         Controls.Add(btnAbout)
         Controls.Add(PictureBoxLogo)
         Controls.Add(Panel1)
+        Controls.Add(PictureBox3)
         ForeColor = SystemColors.ControlText
         Name = "frmAbout"
         StartPosition = FormStartPosition.CenterScreen
@@ -353,6 +366,7 @@ Partial Class frmAbout
         CType(PictureBoxProgrammer2, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBoxProgrammer1, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBoxLogo, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox3, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -382,4 +396,5 @@ Partial Class frmAbout
     Friend WithEvents Label13 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Label14 As Label
+    Friend WithEvents PictureBox3 As PictureBox
 End Class

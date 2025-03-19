@@ -26,7 +26,7 @@ Public Class frmCart
             .Font = New Font("Katibeh", 28, FontStyle.Regular),
             .ForeColor = Color.White,
             .AutoSize = False,
-            .Width = PanelCartList.Width,
+            .Width = PanelCartList.Width - 30,
             .Height = 50,
             .TextAlign = ContentAlignment.MiddleCenter,
             .Top = 10, ' Positioned at the top

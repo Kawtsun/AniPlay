@@ -36,8 +36,12 @@ Partial Class frmCostumeDashboard
         btnActiveList = New Button()
         btnAbout = New Button()
         Label9 = New Label()
+        PictureBox1 = New PictureBox()
+        PictureBox3 = New PictureBox()
         Panel1.SuspendLayout()
         CType(PictureBoxLogo, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' lblUser
@@ -207,6 +211,26 @@ Partial Class frmCostumeDashboard
         Label9.TabIndex = 24
         Label9.Text = "AniPlay"
         ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.Image = My.Resources.Resources.pngwing_com_7_
+        PictureBox1.Location = New Point(-20, 473)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(204, 209)
+        PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBox1.TabIndex = 25
+        PictureBox1.TabStop = False
+        ' 
+        ' PictureBox3
+        ' 
+        PictureBox3.Image = My.Resources.Resources.frieren1212
+        PictureBox3.Location = New Point(309, -4)
+        PictureBox3.Name = "PictureBox3"
+        PictureBox3.Size = New Size(475, 147)
+        PictureBox3.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBox3.TabIndex = 27
+        PictureBox3.TabStop = False
+        ' 
         ' frmCostumeDashboard
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -226,11 +250,15 @@ Partial Class frmCostumeDashboard
         Controls.Add(PictureBoxLogo)
         Controls.Add(Panel1)
         Controls.Add(lblUser)
+        Controls.Add(PictureBox1)
+        Controls.Add(PictureBox3)
         Name = "frmCostumeDashboard"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Costume Dashboard"
         Panel1.ResumeLayout(False)
         CType(PictureBoxLogo, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox3, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -249,4 +277,6 @@ Partial Class frmCostumeDashboard
     Friend WithEvents btnActiveList As Button
     Friend WithEvents btnAbout As Button
     Friend WithEvents Label9 As Label
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents PictureBox3 As PictureBox
 End Class

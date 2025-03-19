@@ -56,9 +56,11 @@ Partial Class frmCheckout
         btnShop = New Button()
         Label1 = New Label()
         lblUser = New Label()
+        PictureBox3 = New PictureBox()
         Panel1.SuspendLayout()
         PanelCheckoutList.SuspendLayout()
         CType(PictureBoxLogo, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Panel1
@@ -437,6 +439,16 @@ Partial Class frmCheckout
         lblUser.Text = "Label1"
         lblUser.TextAlign = ContentAlignment.TopRight
         ' 
+        ' PictureBox3
+        ' 
+        PictureBox3.Image = My.Resources.Resources.frieren1212
+        PictureBox3.Location = New Point(309, -4)
+        PictureBox3.Name = "PictureBox3"
+        PictureBox3.Size = New Size(475, 147)
+        PictureBox3.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBox3.TabIndex = 32
+        PictureBox3.TabStop = False
+        ' 
         ' frmCheckout
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -451,6 +463,7 @@ Partial Class frmCheckout
         Controls.Add(btnAbout)
         Controls.Add(PictureBoxLogo)
         Controls.Add(Panel1)
+        Controls.Add(PictureBox3)
         Name = "frmCheckout"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Checkout"
@@ -458,6 +471,7 @@ Partial Class frmCheckout
         PanelCheckoutList.ResumeLayout(False)
         PanelCheckoutList.PerformLayout()
         CType(PictureBoxLogo, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox3, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -497,5 +511,6 @@ Partial Class frmCheckout
     Friend WithEvents lblName As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents Label15 As Label
+    Friend WithEvents PictureBox3 As PictureBox
 
 End Class
