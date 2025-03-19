@@ -1,4 +1,5 @@
-﻿Public Class frmCart
+﻿Imports System.Drawing.Drawing2D
+Public Class frmCart
     Public Property Username As String
     Public Property Name As String
     Public Property Email As String
@@ -60,6 +61,8 @@
         Else
             lblUser.Text = "Welcome, User!"
         End If
+
+        MakePictureBoxCircular(PictureBoxLogo)
 
         ' Initialize the labels
         InitializeLabels()
@@ -254,5 +257,14 @@
     Private Sub frmCart_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
         ' Set Cart button as active when the form becomes visible
         SetActiveNavButton(btnCart)
+    End Sub
+
+    Private Sub MakePictureBoxCircular(pictureBox As PictureBox)
+        ' Create a circular GraphicsPath
+        Dim circlePath As New GraphicsPath()
+        circlePath.AddEllipse(0, 0, pictureBox.Width, pictureBox.Height)
+
+        ' Set the region of the PictureBox to the circular path
+        pictureBox.Region = New Region(circlePath)
     End Sub
 End Class

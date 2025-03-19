@@ -25,7 +25,7 @@ Partial Class frmCostumeDashboard
         lblUser = New Label()
         Panel1 = New Panel()
         Panel2 = New Panel()
-        PictureBox1 = New PictureBox()
+        PictureBoxLogo = New PictureBox()
         btnCart = New Button()
         btnAll = New Button()
         btnWomen = New Button()
@@ -37,7 +37,7 @@ Partial Class frmCostumeDashboard
         btnAbout = New Button()
         Label9 = New Label()
         Panel1.SuspendLayout()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBoxLogo, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' lblUser
@@ -70,16 +70,16 @@ Partial Class frmCostumeDashboard
         Panel2.Size = New Size(1074, 542)
         Panel2.TabIndex = 0
         ' 
-        ' PictureBox1
+        ' PictureBoxLogo
         ' 
-        PictureBox1.BackgroundImageLayout = ImageLayout.None
-        PictureBox1.Image = My.Resources.Resources.logo2
-        PictureBox1.Location = New Point(47, 18)
-        PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(100, 100)
-        PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
-        PictureBox1.TabIndex = 3
-        PictureBox1.TabStop = False
+        PictureBoxLogo.BackgroundImageLayout = ImageLayout.None
+        PictureBoxLogo.Image = My.Resources.Resources.logo2
+        PictureBoxLogo.Location = New Point(47, 18)
+        PictureBoxLogo.Name = "PictureBoxLogo"
+        PictureBoxLogo.Size = New Size(100, 100)
+        PictureBoxLogo.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBoxLogo.TabIndex = 3
+        PictureBoxLogo.TabStop = False
         ' 
         ' btnCart
         ' 
@@ -223,21 +223,21 @@ Partial Class frmCostumeDashboard
         Controls.Add(btnWomen)
         Controls.Add(btnAll)
         Controls.Add(btnCart)
-        Controls.Add(PictureBox1)
+        Controls.Add(PictureBoxLogo)
         Controls.Add(Panel1)
         Controls.Add(lblUser)
         Name = "frmCostumeDashboard"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Costume Dashboard"
         Panel1.ResumeLayout(False)
-        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBoxLogo, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
     Friend WithEvents lblUser As Label
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents PictureBoxLogo As PictureBox
     Friend WithEvents btnCart As Button
     Friend WithEvents btnAll As Button
     Friend WithEvents btnWomen As Button

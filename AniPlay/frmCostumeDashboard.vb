@@ -1,4 +1,5 @@
-﻿Public Class frmCostumeDashboard
+﻿Imports System.Drawing.Drawing2D
+Public Class frmCostumeDashboard
     Public Property CurrentUser As User
     Private costumeData As List(Of CostumeItem) ' List to store all costume data
     Private cartData As List(Of CartItem) = New List(Of CartItem)() ' List to store cart items
@@ -32,6 +33,7 @@
             lblUser.Text = "Welcome, User!"
         End If
 
+        MakePictureBoxCircular(PictureBoxLogo)
 
         ' Initialize costume data
         InitializeCostumeData()
@@ -245,5 +247,14 @@
 
     Private Sub frmCostumeDashboard_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
         SetActiveNavButton(btnShop)
+    End Sub
+
+    Private Sub MakePictureBoxCircular(pictureBox As PictureBox)
+        ' Create a circular GraphicsPath
+        Dim circlePath As New GraphicsPath()
+        circlePath.AddEllipse(0, 0, pictureBox.Width, pictureBox.Height)
+
+        ' Set the region of the PictureBox to the circular path
+        pictureBox.Region = New Region(circlePath)
     End Sub
 End Class

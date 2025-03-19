@@ -47,7 +47,7 @@ Partial Class frmActive
         lblLateFees = New Label()
         lblThankyou = New Label()
         Label2 = New Label()
-        PictureBox1 = New PictureBox()
+        PictureBoxLogo = New PictureBox()
         Label1 = New Label()
         btnAbout = New Button()
         btnActiveList = New Button()
@@ -60,7 +60,7 @@ Partial Class frmActive
         PanelRentalList.SuspendLayout()
         PanelListItem.SuspendLayout()
         CType(DataGridViewItemList, ComponentModel.ISupportInitialize).BeginInit()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBoxLogo, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Panel1
@@ -356,15 +356,15 @@ Partial Class frmActive
         Label2.TabIndex = 0
         Label2.Text = "Active Rental"
         ' 
-        ' PictureBox1
+        ' PictureBoxLogo
         ' 
-        PictureBox1.Image = My.Resources.Resources.logo2
-        PictureBox1.Location = New Point(47, 18)
-        PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(100, 100)
-        PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
-        PictureBox1.TabIndex = 1
-        PictureBox1.TabStop = False
+        PictureBoxLogo.Image = My.Resources.Resources.logo2
+        PictureBoxLogo.Location = New Point(47, 18)
+        PictureBoxLogo.Name = "PictureBoxLogo"
+        PictureBoxLogo.Size = New Size(100, 100)
+        PictureBoxLogo.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBoxLogo.TabIndex = 1
+        PictureBoxLogo.TabStop = False
         ' 
         ' Label1
         ' 
@@ -452,7 +452,7 @@ Partial Class frmActive
         Controls.Add(btnActiveList)
         Controls.Add(btnAbout)
         Controls.Add(Label1)
-        Controls.Add(PictureBox1)
+        Controls.Add(PictureBoxLogo)
         Controls.Add(Panel1)
         Name = "frmActive"
         StartPosition = FormStartPosition.CenterScreen
@@ -465,14 +465,14 @@ Partial Class frmActive
         PanelRentalList.PerformLayout()
         PanelListItem.ResumeLayout(False)
         CType(DataGridViewItemList, ComponentModel.ISupportInitialize).EndInit()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBoxLogo, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents PictureBoxLogo As PictureBox
     Friend WithEvents Label1 As Label
     Friend WithEvents btnAbout As Button
     Friend WithEvents btnActiveList As Button

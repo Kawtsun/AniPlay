@@ -49,7 +49,7 @@ Partial Class frmRegister
         lnkLoginHere = New LinkLabel()
         PictureBox2 = New PictureBox()
         PictureBox3 = New PictureBox()
-        PictureBox1 = New PictureBox()
+        PictureBoxLogo = New PictureBox()
         Panel1.SuspendLayout()
         CType(PictureBox7, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox6, ComponentModel.ISupportInitialize).BeginInit()
@@ -57,7 +57,7 @@ Partial Class frmRegister
         CType(PictureBox4, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBoxLogo, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Label1
@@ -329,16 +329,16 @@ Partial Class frmRegister
         PictureBox3.TabIndex = 18
         PictureBox3.TabStop = False
         ' 
-        ' PictureBox1
+        ' PictureBoxLogo
         ' 
-        PictureBox1.BackgroundImageLayout = ImageLayout.None
-        PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
-        PictureBox1.Location = New Point(945, 25)
-        PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(100, 100)
-        PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
-        PictureBox1.TabIndex = 2
-        PictureBox1.TabStop = False
+        PictureBoxLogo.BackgroundImageLayout = ImageLayout.None
+        PictureBoxLogo.Image = CType(resources.GetObject("PictureBoxLogo.Image"), Image)
+        PictureBoxLogo.Location = New Point(945, 25)
+        PictureBoxLogo.Name = "PictureBoxLogo"
+        PictureBoxLogo.Size = New Size(100, 100)
+        PictureBoxLogo.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBoxLogo.TabIndex = 2
+        PictureBoxLogo.TabStop = False
         ' 
         ' frmRegister
         ' 
@@ -359,7 +359,7 @@ Partial Class frmRegister
         Controls.Add(Label5)
         Controls.Add(Label4)
         Controls.Add(Label3)
-        Controls.Add(PictureBox1)
+        Controls.Add(PictureBoxLogo)
         Controls.Add(Label2)
         Controls.Add(Panel1)
         Controls.Add(Label1)
@@ -376,7 +376,7 @@ Partial Class frmRegister
         CType(PictureBox4, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox3, ComponentModel.ISupportInitialize).EndInit()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBoxLogo, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -401,7 +401,7 @@ Partial Class frmRegister
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents Label10 As Label
     Friend WithEvents Label9 As Label
-    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents PictureBoxLogo As PictureBox
     Friend WithEvents Label11 As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents PictureBox6 As PictureBox

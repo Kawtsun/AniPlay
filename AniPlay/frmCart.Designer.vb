@@ -24,7 +24,7 @@ Partial Class frmCart
     Private Sub InitializeComponent()
         Panel2 = New Panel()
         PanelCartList = New Panel()
-        PictureBox1 = New PictureBox()
+        PictureBoxLogo = New PictureBox()
         Label9 = New Label()
         btnAbout = New Button()
         btnActiveList = New Button()
@@ -32,7 +32,7 @@ Partial Class frmCart
         btnCart = New Button()
         lblUser = New Label()
         Panel2.SuspendLayout()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBoxLogo, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Panel2
@@ -55,16 +55,16 @@ Partial Class frmCart
         PanelCartList.Size = New Size(675, 496)
         PanelCartList.TabIndex = 0
         ' 
-        ' PictureBox1
+        ' PictureBoxLogo
         ' 
-        PictureBox1.BackgroundImageLayout = ImageLayout.None
-        PictureBox1.Image = My.Resources.Resources.logo2
-        PictureBox1.Location = New Point(47, 18)
-        PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(100, 100)
-        PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
-        PictureBox1.TabIndex = 4
-        PictureBox1.TabStop = False
+        PictureBoxLogo.BackgroundImageLayout = ImageLayout.None
+        PictureBoxLogo.Image = My.Resources.Resources.logo2
+        PictureBoxLogo.Location = New Point(47, 18)
+        PictureBoxLogo.Name = "PictureBoxLogo"
+        PictureBoxLogo.Size = New Size(100, 100)
+        PictureBoxLogo.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBoxLogo.TabIndex = 4
+        PictureBoxLogo.TabStop = False
         ' 
         ' Label9
         ' 
@@ -152,19 +152,19 @@ Partial Class frmCart
         Controls.Add(btnShop)
         Controls.Add(btnCart)
         Controls.Add(Label9)
-        Controls.Add(PictureBox1)
+        Controls.Add(PictureBoxLogo)
         Controls.Add(Panel2)
         Name = "frmCart"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Cart"
         Panel2.ResumeLayout(False)
-        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBoxLogo, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents PictureBoxLogo As PictureBox
     Friend WithEvents Label9 As Label
     Friend WithEvents btnAbout As Button
     Friend WithEvents btnActiveList As Button

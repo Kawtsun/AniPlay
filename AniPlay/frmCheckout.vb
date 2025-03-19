@@ -1,5 +1,6 @@
 ﻿Imports AniPlay.frmActive
 
+Imports System.Drawing.Drawing2D
 Public Class frmCheckout
     Public Property Username As String
     Public Property Name As String
@@ -79,6 +80,7 @@ Public Class frmCheckout
         lblName.Text = Name
         lblEmail.Text = Email
 
+        MakePictureBoxCircular(PictureBoxLogo)
 
         ' Initialize the date pickers
         DateTimeFrom.Value = DateTime.Now.Date ' Default to today's date
@@ -121,6 +123,15 @@ Public Class frmCheckout
 
         ' Optionally, hide or close frmCheckout
         Me.Hide()
+    End Sub
+
+    Private Sub MakePictureBoxCircular(pictureBox As PictureBox)
+        ' Create a circular GraphicsPath
+        Dim circlePath As New GraphicsPath()
+        circlePath.AddEllipse(0, 0, pictureBox.Width, pictureBox.Height)
+
+        ' Set the region of the PictureBox to the circular path
+        pictureBox.Region = New Region(circlePath)
     End Sub
 
 End Class

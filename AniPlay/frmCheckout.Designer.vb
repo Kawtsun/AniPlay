@@ -24,7 +24,9 @@ Partial Class frmCheckout
     Private Sub InitializeComponent()
         Panel1 = New Panel()
         PanelCheckoutList = New Panel()
+        Label9 = New Label()
         lblEmail = New Label()
+        Label15 = New Label()
         lblName = New Label()
         lblDiscount = New Label()
         Label14 = New Label()
@@ -47,7 +49,7 @@ Partial Class frmCheckout
         Label4 = New Label()
         Label3 = New Label()
         Label2 = New Label()
-        PictureBox1 = New PictureBox()
+        PictureBoxLogo = New PictureBox()
         btnAbout = New Button()
         btnActive = New Button()
         btnCart = New Button()
@@ -56,7 +58,7 @@ Partial Class frmCheckout
         lblUser = New Label()
         Panel1.SuspendLayout()
         PanelCheckoutList.SuspendLayout()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBoxLogo, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Panel1
@@ -71,7 +73,9 @@ Partial Class frmCheckout
         ' PanelCheckoutList
         ' 
         PanelCheckoutList.BackColor = Color.Teal
+        PanelCheckoutList.Controls.Add(Label9)
         PanelCheckoutList.Controls.Add(lblEmail)
+        PanelCheckoutList.Controls.Add(Label15)
         PanelCheckoutList.Controls.Add(lblName)
         PanelCheckoutList.Controls.Add(lblDiscount)
         PanelCheckoutList.Controls.Add(Label14)
@@ -100,6 +104,16 @@ Partial Class frmCheckout
         PanelCheckoutList.Size = New Size(1240, 502)
         PanelCheckoutList.TabIndex = 0
         ' 
+        ' Label9
+        ' 
+        Label9.Font = New Font("Katibeh", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        Label9.ForeColor = Color.White
+        Label9.Location = New Point(38, 432)
+        Label9.Name = "Label9"
+        Label9.Size = New Size(433, 34)
+        Label9.TabIndex = 14
+        Label9.Text = "5% of the daily rental price per day late."
+        ' 
         ' lblEmail
         ' 
         lblEmail.BackColor = Color.White
@@ -109,6 +123,17 @@ Partial Class frmCheckout
         lblEmail.Name = "lblEmail"
         lblEmail.Size = New Size(384, 36)
         lblEmail.TabIndex = 28
+        ' 
+        ' Label15
+        ' 
+        Label15.AutoSize = True
+        Label15.Font = New Font("Katibeh", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(178))
+        Label15.ForeColor = Color.White
+        Label15.Location = New Point(38, 400)
+        Label15.Name = "Label15"
+        Label15.Size = New Size(140, 29)
+        Label15.TabIndex = 13
+        Label15.Text = "Late Fee Policy"
         ' 
         ' lblName
         ' 
@@ -328,15 +353,15 @@ Partial Class frmCheckout
         Label2.TabIndex = 0
         Label2.Text = "Checkout"
         ' 
-        ' PictureBox1
+        ' PictureBoxLogo
         ' 
-        PictureBox1.Image = My.Resources.Resources.logo2
-        PictureBox1.Location = New Point(47, 18)
-        PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(100, 100)
-        PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
-        PictureBox1.TabIndex = 1
-        PictureBox1.TabStop = False
+        PictureBoxLogo.Image = My.Resources.Resources.logo2
+        PictureBoxLogo.Location = New Point(47, 18)
+        PictureBoxLogo.Name = "PictureBoxLogo"
+        PictureBoxLogo.Size = New Size(100, 100)
+        PictureBoxLogo.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBoxLogo.TabIndex = 1
+        PictureBoxLogo.TabStop = False
         ' 
         ' btnAbout
         ' 
@@ -424,7 +449,7 @@ Partial Class frmCheckout
         Controls.Add(btnCart)
         Controls.Add(btnActive)
         Controls.Add(btnAbout)
-        Controls.Add(PictureBox1)
+        Controls.Add(PictureBoxLogo)
         Controls.Add(Panel1)
         Name = "frmCheckout"
         StartPosition = FormStartPosition.CenterScreen
@@ -432,13 +457,13 @@ Partial Class frmCheckout
         Panel1.ResumeLayout(False)
         PanelCheckoutList.ResumeLayout(False)
         PanelCheckoutList.PerformLayout()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBoxLogo, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents PictureBoxLogo As PictureBox
     Friend WithEvents btnAbout As Button
     Friend WithEvents btnActive As Button
     Friend WithEvents btnCart As Button
@@ -470,5 +495,7 @@ Partial Class frmCheckout
     Friend WithEvents lblUser As Label
     Friend WithEvents lblEmail As Label
     Friend WithEvents lblName As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Label15 As Label
 
 End Class

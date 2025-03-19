@@ -26,31 +26,34 @@ Partial Class frmAbout
         Panel1 = New Panel()
         Panel2 = New Panel()
         Panel3 = New Panel()
+        Label14 = New Label()
+        Label1 = New Label()
+        Label12 = New Label()
+        Label11 = New Label()
         Label10 = New Label()
         Label9 = New Label()
         Label8 = New Label()
         Label6 = New Label()
         Label5 = New Label()
-        PictureBox3 = New PictureBox()
-        PictureBox2 = New PictureBox()
+        PictureBoxProgrammer2 = New PictureBox()
+        PictureBoxProgrammer1 = New PictureBox()
         Label4 = New Label()
         Label3 = New Label()
         Label2 = New Label()
         Label7 = New Label()
-        PictureBox1 = New PictureBox()
-        Label1 = New Label()
-        Button1 = New Button()
-        Button2 = New Button()
-        Button3 = New Button()
-        Button4 = New Button()
-        Label11 = New Label()
-        Label12 = New Label()
+        PictureBoxLogo = New PictureBox()
+        btnAbout = New Button()
+        btnActiveList = New Button()
+        btnCart = New Button()
+        btnShop = New Button()
+        lblUser = New Label()
+        Label13 = New Label()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
         Panel3.SuspendLayout()
-        CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
-        CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBoxProgrammer2, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBoxProgrammer1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBoxLogo, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Panel1
@@ -74,6 +77,8 @@ Partial Class frmAbout
         ' Panel3
         ' 
         Panel3.BackColor = Color.White
+        Panel3.Controls.Add(Label14)
+        Panel3.Controls.Add(Label1)
         Panel3.Controls.Add(Label12)
         Panel3.Controls.Add(Label11)
         Panel3.Controls.Add(Label10)
@@ -81,8 +86,8 @@ Partial Class frmAbout
         Panel3.Controls.Add(Label8)
         Panel3.Controls.Add(Label6)
         Panel3.Controls.Add(Label5)
-        Panel3.Controls.Add(PictureBox3)
-        Panel3.Controls.Add(PictureBox2)
+        Panel3.Controls.Add(PictureBoxProgrammer2)
+        Panel3.Controls.Add(PictureBoxProgrammer1)
         Panel3.Controls.Add(Label4)
         Panel3.Controls.Add(Label3)
         Panel3.Controls.Add(Label2)
@@ -91,6 +96,45 @@ Partial Class frmAbout
         Panel3.Name = "Panel3"
         Panel3.Size = New Size(1168, 462)
         Panel3.TabIndex = 0
+        ' 
+        ' Label14
+        ' 
+        Label14.Font = New Font("Katibeh", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        Label14.Location = New Point(39, 217)
+        Label14.Name = "Label14"
+        Label14.Size = New Size(395, 41)
+        Label14.TabIndex = 14
+        Label14.Text = "Programmers"
+        Label14.TextAlign = ContentAlignment.TopCenter
+        ' 
+        ' Label1
+        ' 
+        Label1.Font = New Font("Katibeh", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        Label1.Location = New Point(39, 102)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(453, 115)
+        Label1.TabIndex = 13
+        Label1.Text = resources.GetString("Label1.Text")
+        Label1.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' Label12
+        ' 
+        Label12.Font = New Font("Katibeh", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        Label12.Location = New Point(631, 261)
+        Label12.Name = "Label12"
+        Label12.Size = New Size(433, 34)
+        Label12.TabIndex = 12
+        Label12.Text = "5% of the daily rental price per day late."
+        ' 
+        ' Label11
+        ' 
+        Label11.AutoSize = True
+        Label11.Font = New Font("Katibeh", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(178))
+        Label11.Location = New Point(631, 230)
+        Label11.Name = "Label11"
+        Label11.Size = New Size(140, 29)
+        Label11.TabIndex = 11
+        Label11.Text = "Late Fee Policy"
         ' 
         ' Label10
         ' 
@@ -123,50 +167,52 @@ Partial Class frmAbout
         ' Label6
         ' 
         Label6.AutoSize = True
-        Label6.Location = New Point(106, 363)
+        Label6.Font = New Font("Katibeh", 18F)
+        Label6.Location = New Point(71, 414)
         Label6.Name = "Label6"
-        Label6.Size = New Size(43, 15)
+        Label6.Size = New Size(81, 29)
         Label6.TabIndex = 6
-        Label6.Text = "Fireren"
+        Label6.Text = "Kawtsun"
         ' 
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Location = New Point(326, 364)
+        Label5.Font = New Font("Katibeh", 18F)
+        Label5.Location = New Point(326, 414)
         Label5.Name = "Label5"
-        Label5.Size = New Size(74, 15)
+        Label5.Size = New Size(59, 29)
         Label5.TabIndex = 5
-        Label5.Text = "Sung Jinwoo"
+        Label5.Text = "Rahee"
         ' 
-        ' PictureBox3
+        ' PictureBoxProgrammer2
         ' 
-        PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), Image)
-        PictureBox3.Location = New Point(288, 230)
-        PictureBox3.Name = "PictureBox3"
-        PictureBox3.Size = New Size(155, 131)
-        PictureBox3.SizeMode = PictureBoxSizeMode.Zoom
-        PictureBox3.TabIndex = 4
-        PictureBox3.TabStop = False
+        PictureBoxProgrammer2.Image = My.Resources.Resources.rahee2
+        PictureBoxProgrammer2.Location = New Point(284, 261)
+        PictureBoxProgrammer2.Name = "PictureBoxProgrammer2"
+        PictureBoxProgrammer2.Size = New Size(150, 150)
+        PictureBoxProgrammer2.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBoxProgrammer2.TabIndex = 4
+        PictureBoxProgrammer2.TabStop = False
         ' 
-        ' PictureBox2
+        ' PictureBoxProgrammer1
         ' 
-        PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), Image)
-        PictureBox2.Location = New Point(30, 230)
-        PictureBox2.Name = "PictureBox2"
-        PictureBox2.Size = New Size(217, 133)
-        PictureBox2.SizeMode = PictureBoxSizeMode.Zoom
-        PictureBox2.TabIndex = 3
-        PictureBox2.TabStop = False
+        PictureBoxProgrammer1.Image = My.Resources.Resources.kawtsun
+        PictureBoxProgrammer1.Location = New Point(39, 261)
+        PictureBoxProgrammer1.Name = "PictureBoxProgrammer1"
+        PictureBoxProgrammer1.Size = New Size(150, 150)
+        PictureBoxProgrammer1.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBoxProgrammer1.TabIndex = 3
+        PictureBoxProgrammer1.TabStop = False
         ' 
         ' Label4
         ' 
-        Label4.Font = New Font("Katibeh", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
-        Label4.Location = New Point(30, 46)
+        Label4.Font = New Font("Katibeh", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        Label4.Location = New Point(30, 61)
         Label4.Name = "Label4"
-        Label4.Size = New Size(453, 168)
+        Label4.Size = New Size(453, 41)
         Label4.TabIndex = 2
-        Label4.Text = resources.GetString("Label4.Text")
-        Label4.TextAlign = ContentAlignment.MiddleLeft
+        Label4.Text = "AniPlay – Where Your Favorite Characters Come To Life!"
+        Label4.TextAlign = ContentAlignment.TopCenter
         ' 
         ' Label3
         ' 
@@ -198,97 +244,89 @@ Partial Class frmAbout
         Label7.Text = resources.GetString("Label7.Text")
         Label7.TextAlign = ContentAlignment.MiddleLeft
         ' 
-        ' PictureBox1
+        ' PictureBoxLogo
         ' 
-        PictureBox1.Image = My.Resources.Resources.logo2
-        PictureBox1.Location = New Point(48, 24)
-        PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(100, 100)
-        PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
-        PictureBox1.TabIndex = 1
-        PictureBox1.TabStop = False
+        PictureBoxLogo.Image = My.Resources.Resources.logo2
+        PictureBoxLogo.Location = New Point(47, 18)
+        PictureBoxLogo.Name = "PictureBoxLogo"
+        PictureBoxLogo.Size = New Size(100, 100)
+        PictureBoxLogo.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBoxLogo.TabIndex = 1
+        PictureBoxLogo.TabStop = False
         ' 
-        ' Label1
+        ' btnAbout
         ' 
-        Label1.AutoSize = True
-        Label1.Font = New Font("Magneto", 26.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label1.ForeColor = Color.White
-        Label1.Location = New Point(182, 49)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(180, 44)
-        Label1.TabIndex = 2
-        Label1.Text = "AniPlay"
+        btnAbout.BackColor = Color.MediumSeaGreen
+        btnAbout.Font = New Font("Katibeh", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        btnAbout.ForeColor = Color.White
+        btnAbout.Location = New Point(1133, 47)
+        btnAbout.Name = "btnAbout"
+        btnAbout.Size = New Size(119, 51)
+        btnAbout.TabIndex = 3
+        btnAbout.Text = "About"
+        btnAbout.TextAlign = ContentAlignment.TopCenter
+        btnAbout.UseVisualStyleBackColor = False
         ' 
-        ' Button1
+        ' btnActiveList
         ' 
-        Button1.BackColor = Color.MediumSeaGreen
-        Button1.Font = New Font("Katibeh", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
-        Button1.ForeColor = Color.White
-        Button1.Location = New Point(1118, 49)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(119, 51)
-        Button1.TabIndex = 3
-        Button1.Text = "About"
-        Button1.TextAlign = ContentAlignment.TopCenter
-        Button1.UseVisualStyleBackColor = False
+        btnActiveList.BackColor = Color.MediumSeaGreen
+        btnActiveList.Font = New Font("Katibeh", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        btnActiveList.ForeColor = Color.White
+        btnActiveList.Location = New Point(1008, 47)
+        btnActiveList.Name = "btnActiveList"
+        btnActiveList.Size = New Size(119, 51)
+        btnActiveList.TabIndex = 4
+        btnActiveList.Text = "Active"
+        btnActiveList.TextAlign = ContentAlignment.TopCenter
+        btnActiveList.UseVisualStyleBackColor = False
         ' 
-        ' Button2
+        ' btnCart
         ' 
-        Button2.BackColor = Color.MediumSeaGreen
-        Button2.Font = New Font("Katibeh", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
-        Button2.ForeColor = Color.White
-        Button2.Location = New Point(993, 49)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(119, 51)
-        Button2.TabIndex = 4
-        Button2.Text = "Active"
-        Button2.TextAlign = ContentAlignment.TopCenter
-        Button2.UseVisualStyleBackColor = False
+        btnCart.BackColor = Color.MediumSeaGreen
+        btnCart.Font = New Font("Katibeh", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        btnCart.ForeColor = Color.White
+        btnCart.Location = New Point(883, 47)
+        btnCart.Name = "btnCart"
+        btnCart.Size = New Size(119, 51)
+        btnCart.TabIndex = 5
+        btnCart.Text = "Cart"
+        btnCart.TextAlign = ContentAlignment.TopCenter
+        btnCart.UseVisualStyleBackColor = False
         ' 
-        ' Button3
+        ' btnShop
         ' 
-        Button3.BackColor = Color.MediumSeaGreen
-        Button3.Font = New Font("Katibeh", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
-        Button3.ForeColor = Color.White
-        Button3.Location = New Point(868, 49)
-        Button3.Name = "Button3"
-        Button3.Size = New Size(119, 51)
-        Button3.TabIndex = 5
-        Button3.Text = "Cart"
-        Button3.TextAlign = ContentAlignment.TopCenter
-        Button3.UseVisualStyleBackColor = False
+        btnShop.BackColor = Color.MediumSeaGreen
+        btnShop.Font = New Font("Katibeh", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        btnShop.ForeColor = Color.White
+        btnShop.Location = New Point(758, 47)
+        btnShop.Name = "btnShop"
+        btnShop.Size = New Size(119, 51)
+        btnShop.TabIndex = 6
+        btnShop.Text = "Shop"
+        btnShop.TextAlign = ContentAlignment.TopCenter
+        btnShop.UseVisualStyleBackColor = False
         ' 
-        ' Button4
+        ' lblUser
         ' 
-        Button4.BackColor = Color.MediumSeaGreen
-        Button4.Font = New Font("Katibeh", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
-        Button4.ForeColor = Color.White
-        Button4.Location = New Point(743, 49)
-        Button4.Name = "Button4"
-        Button4.Size = New Size(119, 51)
-        Button4.TabIndex = 6
-        Button4.Text = "Shop"
-        Button4.TextAlign = ContentAlignment.TopCenter
-        Button4.UseVisualStyleBackColor = False
+        lblUser.Font = New Font("Katibeh", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        lblUser.ForeColor = Color.White
+        lblUser.Location = New Point(758, 7)
+        lblUser.Name = "lblUser"
+        lblUser.Size = New Size(494, 35)
+        lblUser.TabIndex = 8
+        lblUser.Text = "Label1"
+        lblUser.TextAlign = ContentAlignment.TopRight
         ' 
-        ' Label11
+        ' Label13
         ' 
-        Label11.AutoSize = True
-        Label11.Font = New Font("Katibeh", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(178))
-        Label11.Location = New Point(631, 230)
-        Label11.Name = "Label11"
-        Label11.Size = New Size(140, 29)
-        Label11.TabIndex = 11
-        Label11.Text = "Late Fee Policy"
-        ' 
-        ' Label12
-        ' 
-        Label12.Font = New Font("Katibeh", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
-        Label12.Location = New Point(631, 261)
-        Label12.Name = "Label12"
-        Label12.Size = New Size(433, 34)
-        Label12.TabIndex = 12
-        Label12.Text = "5% of the daily rental price per day late."
+        Label13.AutoSize = True
+        Label13.Font = New Font("Magneto", 24F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label13.ForeColor = Color.White
+        Label13.Location = New Point(190, 47)
+        Label13.Name = "Label13"
+        Label13.Size = New Size(165, 41)
+        Label13.TabIndex = 9
+        Label13.Text = "AniPlay"
         ' 
         ' frmAbout
         ' 
@@ -296,23 +334,25 @@ Partial Class frmAbout
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.Teal
         ClientSize = New Size(1264, 681)
-        Controls.Add(Button4)
-        Controls.Add(Button3)
-        Controls.Add(Button2)
-        Controls.Add(Button1)
-        Controls.Add(Label1)
-        Controls.Add(PictureBox1)
+        Controls.Add(Label13)
+        Controls.Add(lblUser)
+        Controls.Add(btnShop)
+        Controls.Add(btnCart)
+        Controls.Add(btnActiveList)
+        Controls.Add(btnAbout)
+        Controls.Add(PictureBoxLogo)
         Controls.Add(Panel1)
         ForeColor = SystemColors.ControlText
         Name = "frmAbout"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Form1"
         Panel1.ResumeLayout(False)
         Panel2.ResumeLayout(False)
         Panel3.ResumeLayout(False)
         Panel3.PerformLayout()
-        CType(PictureBox3, ComponentModel.ISupportInitialize).EndInit()
-        CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBoxProgrammer2, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBoxProgrammer1, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBoxLogo, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -320,23 +360,26 @@ Partial Class frmAbout
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel3 As Panel
-    Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button4 As Button
+    Friend WithEvents PictureBoxLogo As PictureBox
+    Friend WithEvents btnAbout As Button
+    Friend WithEvents btnActiveList As Button
+    Friend WithEvents btnCart As Button
+    Friend WithEvents btnShop As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents PictureBoxProgrammer1 As PictureBox
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents PictureBox3 As PictureBox
+    Friend WithEvents PictureBoxProgrammer2 As PictureBox
     Friend WithEvents Label7 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents Label11 As Label
+    Friend WithEvents lblUser As Label
+    Friend WithEvents Label13 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label14 As Label
 End Class

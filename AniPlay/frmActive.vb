@@ -1,4 +1,5 @@
-﻿Public Class frmActive
+﻿Imports System.Drawing.Drawing2D
+Public Class frmActive
 
     Public Property Username As String
     Private activeRentals As List(Of ActiveRental) = New List(Of ActiveRental)()
@@ -191,6 +192,9 @@
     ' Form Load Event
     Private Sub frmActive_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         lblUser.Text = $"Welcome, {Username}"
+
+        MakePictureBoxCircular(PictureBoxLogo)
+
         ResetLabelsVisibility() ' Hide labels on load
 
         ' Initialize the DataGridView structure
@@ -206,8 +210,6 @@
             UpdatePanelRentalList(activeRentals.First())
         End If
     End Sub
-
-
 
     Private Sub SetActiveNavButton(activeButton As Button)
         ' Reset the appearance of all navigation buttons
@@ -246,5 +248,14 @@
 
     Private Sub frmActive_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
         SetActiveNavButton(btnActiveList)
+    End Sub
+
+    Private Sub MakePictureBoxCircular(pictureBox As PictureBox)
+        ' Create a circular GraphicsPath
+        Dim circlePath As New GraphicsPath()
+        circlePath.AddEllipse(0, 0, pictureBox.Width, pictureBox.Height)
+
+        ' Set the region of the PictureBox to the circular path
+        pictureBox.Region = New Region(circlePath)
     End Sub
 End Class
