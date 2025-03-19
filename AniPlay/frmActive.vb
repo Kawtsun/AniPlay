@@ -3,7 +3,6 @@
     Public Property Username As String
     ' Property to hold active rentals
     Private activeRentals As List(Of ActiveRental) = New List(Of ActiveRental)()
-
     ' Load active rentals into the panel
     Public Sub LoadActiveRentals(data As List(Of ActiveRental))
         If activeRentals Is Nothing Then
@@ -140,6 +139,13 @@
     End Sub
 
     Private Sub HandleReturn(rental As ActiveRental, returnDate As DateTime)
+        frmCart.CartItemList.Clear()
+
+        ' Update the cart UI to reflect the cleared state
+        If frmCart.Instance IsNot Nothing Then
+            frmCart.Instance.UpdateCartDisplay(New List(Of frmCostumeDashboard.CartItem))
+        End If
+
         Dim message As String = $"Rental No: {rental.RentalNo}" & vbCrLf &
                             $"Rental Period: {rental.DateFrom.ToShortDateString()} to {rental.DateUntil.ToShortDateString()}" & vbCrLf &
                             $"Return Date: {returnDate.ToShortDateString()}" & vbCrLf
@@ -221,7 +227,8 @@
     ' Event handlers for navigation buttons
     Private Sub btnShop_Click(sender As Object, e As EventArgs) Handles btnShop.Click
         ' Set Cart button as active
-        SetActiveNavButton(btnCart)
+        Me.Hide()
+        frmCostumeDashboard.Show()
     End Sub
 
     Private Sub btnCart_Click(sender As Object, e As EventArgs) Handles btnCart.Click

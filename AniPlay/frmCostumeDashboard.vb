@@ -177,20 +177,25 @@
     End Sub
 
     ' Add an item to the cart
+    ' Add an item to the cart
     Private Sub AddToCart(costume As CostumeItem)
-        ' Check for duplicates
-        If cartData.Any(Function(c) c.Name = costume.Name) Then
+        ' Check for duplicates in the shared CartItemList
+        If frmCart.CartItemList.Any(Function(c) c.Name = costume.Name) Then
             MessageBox.Show($"{costume.Name} is already in the cart!", "Duplicate Item", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         Else
-            ' Add item to cart
-            cartData.Add(New CartItem With {
-                .Name = costume.Name,
-                .ImagePath = costume.ImagePath,
-                .RentalPricePerDay = costume.RentalPricePerDay,
-                .RentalDays = 1 ' Default to 1 day
-            })
+            ' Add item to the shared CartItemList
+            frmCart.CartItemList.Add(New frmCostumeDashboard.CartItem With {
+            .Name = costume.Name,
+            .ImagePath = costume.ImagePath,
+            .RentalPricePerDay = costume.RentalPricePerDay,
+            .RentalDays = 1 ' Default to 1 day
+        })
 
-            frmCartInstance.UpdateCartDisplay(cartData)
+            ' Update the cart display using the shared CartItemList
+            If frmCart.Instance IsNot Nothing Then
+                frmCart.Instance.UpdateCartDisplay(frmCart.CartItemList)
+            End If
+
             MessageBox.Show($"{costume.Name} added to the cart!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub

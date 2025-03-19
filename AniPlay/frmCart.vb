@@ -3,6 +3,17 @@
     Public Property Name As String
     Public Property Email As String
 
+    Public Shared CartItemList As New List(Of frmCostumeDashboard.CartItem)
+
+    Public Shared Instance As frmCart
+
+    ' Constructor
+    Public Sub New()
+        InitializeComponent()
+        ' Assign this form to the shared instance
+        Instance = Me
+    End Sub
+
     Private Sub frmCart_Load(sender As Object, e As EventArgs) Handles Me.Load
         If Username IsNot Nothing Then
             lblUser.Text = $"Welcome, {Username}"
@@ -15,6 +26,9 @@
 
     ' Public method to update the cart display
     Public Sub UpdateCartDisplay(cartData As List(Of frmCostumeDashboard.CartItem))
+        CartItemList = cartData ' Keep the shared list in sync
+        ' Clear and populate the UI as before
+
         ' Clear existing items in PanelCartList
         PanelCartList.Controls.Clear()
 
