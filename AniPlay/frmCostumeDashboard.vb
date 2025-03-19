@@ -210,15 +210,18 @@
     End Sub
 
     ' Event handlers for navigation buttons
-    Private Sub btnShop_Click(sender As Object, e As EventArgs) Handles btnShop.Click
-        ' Set Cart button as active
-        SetActiveNavButton(btnCart)
-    End Sub
+    'Private Sub btnShop_Click(sender As Object, e As EventArgs) Handles btnShop.Click
+    '    ' Set Cart button as active
+    '    SetActiveNavButton(btnCart)
+    'End Sub
 
     Private Sub btnCart_Click(sender As Object, e As EventArgs) Handles btnCart.Click
-        frmCartInstance.Username = CurrentUser.username
-        frmCartInstance.Name = CurrentUser.name
-        frmCartInstance.Email = CurrentUser.email
+
+        If CurrentUser IsNot Nothing Then
+            frmCartInstance.Username = CurrentUser.username
+            frmCartInstance.Name = CurrentUser.name
+            frmCartInstance.Email = CurrentUser.email
+        End If
 
         Me.Hide()
         frmCartInstance.Show()

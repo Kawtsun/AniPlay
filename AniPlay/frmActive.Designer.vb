@@ -35,7 +35,7 @@ Partial Class frmActive
         PictureBox1 = New PictureBox()
         Label1 = New Label()
         btnAbout = New Button()
-        btnActive = New Button()
+        btnActiveList = New Button()
         btnCart = New Button()
         btnShop = New Button()
         lblUser = New Label()
@@ -190,18 +190,18 @@ Partial Class frmActive
         btnAbout.TextAlign = ContentAlignment.TopCenter
         btnAbout.UseVisualStyleBackColor = False
         ' 
-        ' btnActive
+        ' btnActiveList
         ' 
-        btnActive.BackColor = Color.MediumSeaGreen
-        btnActive.Font = New Font("Katibeh", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
-        btnActive.ForeColor = Color.White
-        btnActive.Location = New Point(1008, 47)
-        btnActive.Name = "btnActive"
-        btnActive.Size = New Size(119, 51)
-        btnActive.TabIndex = 4
-        btnActive.Text = "Active"
-        btnActive.TextAlign = ContentAlignment.TopCenter
-        btnActive.UseVisualStyleBackColor = False
+        btnActiveList.BackColor = Color.MediumSeaGreen
+        btnActiveList.Font = New Font("Katibeh", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        btnActiveList.ForeColor = Color.White
+        btnActiveList.Location = New Point(1008, 47)
+        btnActiveList.Name = "btnActiveList"
+        btnActiveList.Size = New Size(119, 51)
+        btnActiveList.TabIndex = 4
+        btnActiveList.Text = "Active"
+        btnActiveList.TextAlign = ContentAlignment.TopCenter
+        btnActiveList.UseVisualStyleBackColor = False
         ' 
         ' btnCart
         ' 
@@ -249,7 +249,7 @@ Partial Class frmActive
         Controls.Add(lblUser)
         Controls.Add(btnShop)
         Controls.Add(btnCart)
-        Controls.Add(btnActive)
+        Controls.Add(btnActiveList)
         Controls.Add(btnAbout)
         Controls.Add(Label1)
         Controls.Add(PictureBox1)
@@ -271,7 +271,7 @@ Partial Class frmActive
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label1 As Label
     Friend WithEvents btnAbout As Button
-    Friend WithEvents btnActive As Button
+    Friend WithEvents btnActiveList As Button
     Friend WithEvents btnCart As Button
     Friend WithEvents btnShop As Button
     Friend WithEvents Label2 As Label
