@@ -24,7 +24,6 @@ Partial Class frmCart
     Private Sub InitializeComponent()
         Panel2 = New Panel()
         PanelCartList = New Panel()
-        Label1 = New Label()
         PictureBox1 = New PictureBox()
         Label9 = New Label()
         btnAbout = New Button()
@@ -33,7 +32,6 @@ Partial Class frmCart
         btnCart = New Button()
         lblUser = New Label()
         Panel2.SuspendLayout()
-        PanelCartList.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -52,22 +50,10 @@ Partial Class frmCart
         ' 
         PanelCartList.AutoScroll = True
         PanelCartList.BackColor = Color.Teal
-        PanelCartList.Controls.Add(Label1)
         PanelCartList.Location = New Point(291, 20)
         PanelCartList.Name = "PanelCartList"
         PanelCartList.Size = New Size(675, 496)
         PanelCartList.TabIndex = 0
-        ' 
-        ' Label1
-        ' 
-        Label1.AutoSize = True
-        Label1.Font = New Font("Katibeh", 23.9999962F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
-        Label1.ForeColor = Color.White
-        Label1.Location = New Point(12, 9)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(74, 38)
-        Label1.TabIndex = 0
-        Label1.Text = "Items"
         ' 
         ' PictureBox1
         ' 
@@ -172,8 +158,6 @@ Partial Class frmCart
         StartPosition = FormStartPosition.CenterScreen
         Text = "Cart"
         Panel2.ResumeLayout(False)
-        PanelCartList.ResumeLayout(False)
-        PanelCartList.PerformLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
@@ -188,5 +172,4 @@ Partial Class frmCart
     Friend WithEvents btnCart As Button
     Friend WithEvents lblUser As Label
     Friend WithEvents PanelCartList As Panel
-    Friend WithEvents Label1 As Label
 End Class

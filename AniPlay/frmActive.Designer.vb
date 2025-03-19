@@ -25,23 +25,41 @@ Partial Class frmActive
         Panel1 = New Panel()
         Panel2 = New Panel()
         PanelActiveRental = New Panel()
+        PanelRentalList = New Panel()
+        lblDuration = New Label()
+        lblDate = New Label()
+        btnReturn = New Button()
+        datePickerReturn = New DateTimePicker()
+        lblRentalNo = New Label()
+        lblInformation = New Label()
+        lblDiscount = New Label()
+        lblTotalPrice = New Label()
+        lblContactNo = New Label()
+        lblAddress = New Label()
+        lblEmail = New Label()
+        lblName = New Label()
+        PanelListItem = New Panel()
+        lblTotal = New Label()
+        Label3 = New Label()
+        DataGridViewItemList = New DataGridView()
+        lblSubTotal = New Label()
+        lblTotalFees = New Label()
         lblLateFees = New Label()
         lblThankyou = New Label()
-        btnReturn = New Button()
-        Label4 = New Label()
-        DateTimeDateReturned = New DateTimePicker()
-        lblRent = New Label()
         Label2 = New Label()
         PictureBox1 = New PictureBox()
         Label1 = New Label()
         btnAbout = New Button()
-        btnActive = New Button()
+        btnActiveList = New Button()
         btnCart = New Button()
         btnShop = New Button()
         lblUser = New Label()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
         PanelActiveRental.SuspendLayout()
+        PanelRentalList.SuspendLayout()
+        PanelListItem.SuspendLayout()
+        CType(DataGridViewItemList, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -59,91 +77,273 @@ Partial Class frmActive
         Panel2.BackColor = Color.Teal
         Panel2.Controls.Add(PanelActiveRental)
         Panel2.Controls.Add(Label2)
-        Panel2.Location = New Point(291, 20)
+        Panel2.Location = New Point(89, 20)
         Panel2.Name = "Panel2"
-        Panel2.Size = New Size(675, 496)
+        Panel2.Size = New Size(1087, 496)
         Panel2.TabIndex = 0
         ' 
         ' PanelActiveRental
         ' 
         PanelActiveRental.BackColor = Color.White
+        PanelActiveRental.Controls.Add(PanelRentalList)
+        PanelActiveRental.Controls.Add(lblInformation)
+        PanelActiveRental.Controls.Add(lblDiscount)
+        PanelActiveRental.Controls.Add(lblTotalPrice)
+        PanelActiveRental.Controls.Add(lblContactNo)
+        PanelActiveRental.Controls.Add(lblAddress)
+        PanelActiveRental.Controls.Add(lblEmail)
+        PanelActiveRental.Controls.Add(lblName)
+        PanelActiveRental.Controls.Add(PanelListItem)
+        PanelActiveRental.Controls.Add(lblTotalFees)
         PanelActiveRental.Controls.Add(lblLateFees)
         PanelActiveRental.Controls.Add(lblThankyou)
-        PanelActiveRental.Controls.Add(btnReturn)
-        PanelActiveRental.Controls.Add(Label4)
-        PanelActiveRental.Controls.Add(DateTimeDateReturned)
-        PanelActiveRental.Controls.Add(lblRent)
-        PanelActiveRental.Location = New Point(34, 69)
+        PanelActiveRental.Location = New Point(35, 69)
         PanelActiveRental.Name = "PanelActiveRental"
-        PanelActiveRental.Size = New Size(612, 406)
+        PanelActiveRental.Size = New Size(1018, 406)
         PanelActiveRental.TabIndex = 1
+        ' 
+        ' PanelRentalList
+        ' 
+        PanelRentalList.BorderStyle = BorderStyle.FixedSingle
+        PanelRentalList.Controls.Add(lblDuration)
+        PanelRentalList.Controls.Add(lblDate)
+        PanelRentalList.Controls.Add(btnReturn)
+        PanelRentalList.Controls.Add(datePickerReturn)
+        PanelRentalList.Controls.Add(lblRentalNo)
+        PanelRentalList.Location = New Point(20, 15)
+        PanelRentalList.Name = "PanelRentalList"
+        PanelRentalList.Size = New Size(584, 192)
+        PanelRentalList.TabIndex = 19
+        ' 
+        ' lblDuration
+        ' 
+        lblDuration.Font = New Font("Katibeh", 18F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        lblDuration.ForeColor = Color.Black
+        lblDuration.Location = New Point(13, 83)
+        lblDuration.Name = "lblDuration"
+        lblDuration.Size = New Size(237, 29)
+        lblDuration.TabIndex = 14
+        lblDuration.Text = "Duration"
+        ' 
+        ' lblDate
+        ' 
+        lblDate.Font = New Font("Katibeh", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        lblDate.ForeColor = Color.Black
+        lblDate.Location = New Point(297, 22)
+        lblDate.Name = "lblDate"
+        lblDate.Size = New Size(269, 59)
+        lblDate.TabIndex = 13
+        lblDate.Text = "Date"
+        ' 
+        ' btnReturn
+        ' 
+        btnReturn.BackColor = Color.MediumSeaGreen
+        btnReturn.Font = New Font("Katibeh", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        btnReturn.ForeColor = Color.White
+        btnReturn.Location = New Point(403, 122)
+        btnReturn.Name = "btnReturn"
+        btnReturn.Size = New Size(163, 51)
+        btnReturn.TabIndex = 7
+        btnReturn.Text = "Return"
+        btnReturn.TextAlign = ContentAlignment.TopCenter
+        btnReturn.UseVisualStyleBackColor = False
+        ' 
+        ' datePickerReturn
+        ' 
+        datePickerReturn.Font = New Font("Katibeh", 18F)
+        datePickerReturn.Location = New Point(13, 137)
+        datePickerReturn.Name = "datePickerReturn"
+        datePickerReturn.Size = New Size(384, 36)
+        datePickerReturn.TabIndex = 12
+        ' 
+        ' lblRentalNo
+        ' 
+        lblRentalNo.AutoSize = True
+        lblRentalNo.Font = New Font("Katibeh", 26.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        lblRentalNo.ForeColor = Color.Black
+        lblRentalNo.Location = New Point(13, 11)
+        lblRentalNo.Name = "lblRentalNo"
+        lblRentalNo.Size = New Size(125, 42)
+        lblRentalNo.TabIndex = 2
+        lblRentalNo.Text = "Rental No"
+        ' 
+        ' lblInformation
+        ' 
+        lblInformation.Font = New Font("Katibeh", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        lblInformation.ForeColor = Color.MediumSeaGreen
+        lblInformation.Location = New Point(20, 204)
+        lblInformation.Name = "lblInformation"
+        lblInformation.Size = New Size(251, 32)
+        lblInformation.TabIndex = 18
+        lblInformation.Text = "Information:"
+        lblInformation.TextAlign = ContentAlignment.MiddleLeft
+        lblInformation.Visible = False
+        ' 
+        ' lblDiscount
+        ' 
+        lblDiscount.Font = New Font("Katibeh", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        lblDiscount.ForeColor = Color.Black
+        lblDiscount.Location = New Point(318, 236)
+        lblDiscount.Name = "lblDiscount"
+        lblDiscount.Size = New Size(251, 32)
+        lblDiscount.TabIndex = 17
+        lblDiscount.Text = "Discount:"
+        lblDiscount.TextAlign = ContentAlignment.MiddleLeft
+        lblDiscount.Visible = False
+        ' 
+        ' lblTotalPrice
+        ' 
+        lblTotalPrice.Font = New Font("Katibeh", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        lblTotalPrice.ForeColor = Color.Black
+        lblTotalPrice.Location = New Point(318, 268)
+        lblTotalPrice.Name = "lblTotalPrice"
+        lblTotalPrice.Size = New Size(251, 32)
+        lblTotalPrice.TabIndex = 16
+        lblTotalPrice.Text = "Total Price:"
+        lblTotalPrice.TextAlign = ContentAlignment.MiddleLeft
+        lblTotalPrice.Visible = False
+        ' 
+        ' lblContactNo
+        ' 
+        lblContactNo.Font = New Font("Katibeh", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        lblContactNo.ForeColor = Color.Black
+        lblContactNo.Location = New Point(20, 332)
+        lblContactNo.Name = "lblContactNo"
+        lblContactNo.Size = New Size(251, 32)
+        lblContactNo.TabIndex = 15
+        lblContactNo.Text = "Contact No:"
+        lblContactNo.TextAlign = ContentAlignment.MiddleLeft
+        lblContactNo.Visible = False
+        ' 
+        ' lblAddress
+        ' 
+        lblAddress.Font = New Font("Katibeh", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        lblAddress.ForeColor = Color.Black
+        lblAddress.Location = New Point(20, 300)
+        lblAddress.Name = "lblAddress"
+        lblAddress.Size = New Size(251, 32)
+        lblAddress.TabIndex = 14
+        lblAddress.Text = "Address:"
+        lblAddress.TextAlign = ContentAlignment.MiddleLeft
+        lblAddress.Visible = False
+        ' 
+        ' lblEmail
+        ' 
+        lblEmail.Font = New Font("Katibeh", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        lblEmail.ForeColor = Color.Black
+        lblEmail.Location = New Point(20, 268)
+        lblEmail.Name = "lblEmail"
+        lblEmail.Size = New Size(251, 32)
+        lblEmail.TabIndex = 13
+        lblEmail.Text = "Email:"
+        lblEmail.TextAlign = ContentAlignment.MiddleLeft
+        lblEmail.Visible = False
+        ' 
+        ' lblName
+        ' 
+        lblName.Font = New Font("Katibeh", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        lblName.ForeColor = Color.Black
+        lblName.Location = New Point(20, 236)
+        lblName.Name = "lblName"
+        lblName.Size = New Size(251, 32)
+        lblName.TabIndex = 12
+        lblName.Text = "Name:"
+        lblName.TextAlign = ContentAlignment.MiddleLeft
+        lblName.Visible = False
+        ' 
+        ' PanelListItem
+        ' 
+        PanelListItem.BackColor = Color.DarkSalmon
+        PanelListItem.Controls.Add(lblTotal)
+        PanelListItem.Controls.Add(Label3)
+        PanelListItem.Controls.Add(DataGridViewItemList)
+        PanelListItem.Controls.Add(lblSubTotal)
+        PanelListItem.Location = New Point(621, 0)
+        PanelListItem.Name = "PanelListItem"
+        PanelListItem.Size = New Size(397, 406)
+        PanelListItem.TabIndex = 11
+        ' 
+        ' lblTotal
+        ' 
+        lblTotal.Font = New Font("Katibeh", 18F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        lblTotal.ForeColor = Color.Black
+        lblTotal.Location = New Point(15, 331)
+        lblTotal.Name = "lblTotal"
+        lblTotal.Size = New Size(183, 65)
+        lblTotal.TabIndex = 23
+        lblTotal.Text = "Total:"
+        lblTotal.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' Label3
+        ' 
+        Label3.Font = New Font("Katibeh", 18F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        Label3.ForeColor = Color.Black
+        Label3.Location = New Point(15, 3)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(251, 32)
+        Label3.TabIndex = 22
+        Label3.Text = "Cosplay List"
+        Label3.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' DataGridViewItemList
+        ' 
+        DataGridViewItemList.AllowUserToAddRows = False
+        DataGridViewItemList.AllowUserToDeleteRows = False
+        DataGridViewItemList.AllowUserToResizeColumns = False
+        DataGridViewItemList.AllowUserToResizeRows = False
+        DataGridViewItemList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridViewItemList.Location = New Point(15, 38)
+        DataGridViewItemList.Name = "DataGridViewItemList"
+        DataGridViewItemList.ShowEditingIcon = False
+        DataGridViewItemList.Size = New Size(369, 281)
+        DataGridViewItemList.TabIndex = 21
+        ' 
+        ' lblSubTotal
+        ' 
+        lblSubTotal.Font = New Font("Katibeh", 18F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        lblSubTotal.ForeColor = Color.Black
+        lblSubTotal.Location = New Point(215, 332)
+        lblSubTotal.Name = "lblSubTotal"
+        lblSubTotal.Size = New Size(169, 64)
+        lblSubTotal.TabIndex = 20
+        lblSubTotal.Text = "Sub Total:"
+        lblSubTotal.TextAlign = ContentAlignment.MiddleRight
+        ' 
+        ' lblTotalFees
+        ' 
+        lblTotalFees.Font = New Font("Katibeh", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        lblTotalFees.ForeColor = Color.Black
+        lblTotalFees.Location = New Point(318, 332)
+        lblTotalFees.Name = "lblTotalFees"
+        lblTotalFees.Size = New Size(251, 32)
+        lblTotalFees.TabIndex = 10
+        lblTotalFees.Text = "Total Amount Paid:"
+        lblTotalFees.TextAlign = ContentAlignment.MiddleLeft
+        lblTotalFees.Visible = False
         ' 
         ' lblLateFees
         ' 
         lblLateFees.Font = New Font("Katibeh", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
         lblLateFees.ForeColor = Color.Black
-        lblLateFees.Location = New Point(145, 319)
+        lblLateFees.Location = New Point(318, 300)
         lblLateFees.Name = "lblLateFees"
-        lblLateFees.Size = New Size(359, 32)
+        lblLateFees.Size = New Size(251, 32)
         lblLateFees.TabIndex = 9
         lblLateFees.Text = "Late Fees:"
-        lblLateFees.TextAlign = ContentAlignment.MiddleCenter
+        lblLateFees.TextAlign = ContentAlignment.MiddleLeft
         lblLateFees.Visible = False
         ' 
         ' lblThankyou
         ' 
         lblThankyou.Font = New Font("Katibeh", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
         lblThankyou.ForeColor = Color.Red
-        lblThankyou.Location = New Point(145, 365)
+        lblThankyou.Location = New Point(120, 364)
         lblThankyou.Name = "lblThankyou"
         lblThankyou.Size = New Size(359, 32)
         lblThankyou.TabIndex = 8
         lblThankyou.Text = "Thank you! for shopping with us. Come back again."
         lblThankyou.TextAlign = ContentAlignment.MiddleCenter
         lblThankyou.Visible = False
-        ' 
-        ' btnReturn
-        ' 
-        btnReturn.BackColor = Color.MediumSeaGreen
-        btnReturn.Enabled = False
-        btnReturn.Font = New Font("Katibeh", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
-        btnReturn.ForeColor = Color.White
-        btnReturn.Location = New Point(1038, 34)
-        btnReturn.Name = "btnReturn"
-        btnReturn.Size = New Size(142, 51)
-        btnReturn.TabIndex = 7
-        btnReturn.Text = "Return"
-        btnReturn.TextAlign = ContentAlignment.TopCenter
-        btnReturn.UseVisualStyleBackColor = False
-        ' 
-        ' Label4
-        ' 
-        Label4.AutoSize = True
-        Label4.Font = New Font("Katibeh", 23.9999962F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
-        Label4.Location = New Point(423, 47)
-        Label4.Name = "Label4"
-        Label4.Size = New Size(169, 38)
-        Label4.TabIndex = 2
-        Label4.Text = "Date Returned:"
-        ' 
-        ' DateTimeDateReturned
-        ' 
-        DateTimeDateReturned.CalendarFont = New Font("Katibeh", 9.749999F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
-        DateTimeDateReturned.Font = New Font("Katibeh", 18F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
-        DateTimeDateReturned.Location = New Point(620, 46)
-        DateTimeDateReturned.Name = "DateTimeDateReturned"
-        DateTimeDateReturned.Size = New Size(398, 36)
-        DateTimeDateReturned.TabIndex = 1
-        ' 
-        ' lblRent
-        ' 
-        lblRent.AutoSize = True
-        lblRent.Font = New Font("Katibeh", 23.9999962F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
-        lblRent.Location = New Point(46, 44)
-        lblRent.Name = "lblRent"
-        lblRent.Size = New Size(168, 38)
-        lblRent.TabIndex = 0
-        lblRent.Text = "Costume Name"
         ' 
         ' Label2
         ' 
@@ -190,18 +390,18 @@ Partial Class frmActive
         btnAbout.TextAlign = ContentAlignment.TopCenter
         btnAbout.UseVisualStyleBackColor = False
         ' 
-        ' btnActive
+        ' btnActiveList
         ' 
-        btnActive.BackColor = Color.MediumSeaGreen
-        btnActive.Font = New Font("Katibeh", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
-        btnActive.ForeColor = Color.White
-        btnActive.Location = New Point(1008, 47)
-        btnActive.Name = "btnActive"
-        btnActive.Size = New Size(119, 51)
-        btnActive.TabIndex = 4
-        btnActive.Text = "Active"
-        btnActive.TextAlign = ContentAlignment.TopCenter
-        btnActive.UseVisualStyleBackColor = False
+        btnActiveList.BackColor = Color.MediumSeaGreen
+        btnActiveList.Font = New Font("Katibeh", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        btnActiveList.ForeColor = Color.White
+        btnActiveList.Location = New Point(1008, 47)
+        btnActiveList.Name = "btnActiveList"
+        btnActiveList.Size = New Size(119, 51)
+        btnActiveList.TabIndex = 4
+        btnActiveList.Text = "Active"
+        btnActiveList.TextAlign = ContentAlignment.TopCenter
+        btnActiveList.UseVisualStyleBackColor = False
         ' 
         ' btnCart
         ' 
@@ -249,18 +449,22 @@ Partial Class frmActive
         Controls.Add(lblUser)
         Controls.Add(btnShop)
         Controls.Add(btnCart)
-        Controls.Add(btnActive)
+        Controls.Add(btnActiveList)
         Controls.Add(btnAbout)
         Controls.Add(Label1)
         Controls.Add(PictureBox1)
         Controls.Add(Panel1)
         Name = "frmActive"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Active Rental"
         Panel1.ResumeLayout(False)
         Panel2.ResumeLayout(False)
         Panel2.PerformLayout()
         PanelActiveRental.ResumeLayout(False)
-        PanelActiveRental.PerformLayout()
+        PanelRentalList.ResumeLayout(False)
+        PanelRentalList.PerformLayout()
+        PanelListItem.ResumeLayout(False)
+        CType(DataGridViewItemList, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
@@ -271,16 +475,31 @@ Partial Class frmActive
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label1 As Label
     Friend WithEvents btnAbout As Button
-    Friend WithEvents btnActive As Button
+    Friend WithEvents btnActiveList As Button
     Friend WithEvents btnCart As Button
     Friend WithEvents btnShop As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents PanelActiveRental As Panel
-    Friend WithEvents lblRent As Label
-    Friend WithEvents DateTimeDateReturned As DateTimePicker
-    Friend WithEvents Label4 As Label
-    Friend WithEvents btnReturn As Button
     Friend WithEvents lblThankyou As Label
     Friend WithEvents lblLateFees As Label
     Friend WithEvents lblUser As Label
+    Friend WithEvents lblTotalFees As Label
+    Friend WithEvents lblEmail As Label
+    Friend WithEvents lblName As Label
+    Friend WithEvents PanelListItem As Panel
+    Friend WithEvents lblContactNo As Label
+    Friend WithEvents lblAddress As Label
+    Friend WithEvents lblDiscount As Label
+    Friend WithEvents lblTotalPrice As Label
+    Friend WithEvents lblInformation As Label
+    Friend WithEvents PanelRentalList As Panel
+    Friend WithEvents lblSubTotal As Label
+    Friend WithEvents lblRentalNo As Label
+    Friend WithEvents datePickerReturn As DateTimePicker
+    Friend WithEvents lblDate As Label
+    Friend WithEvents btnReturn As Button
+    Friend WithEvents lblDuration As Label
+    Friend WithEvents DataGridViewItemList As DataGridView
+    Friend WithEvents Label3 As Label
+    Friend WithEvents lblTotal As Label
 End Class
