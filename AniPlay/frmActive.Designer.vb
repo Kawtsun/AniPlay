@@ -39,6 +39,7 @@ Partial Class frmActive
         btnCart = New Button()
         btnShop = New Button()
         lblUser = New Label()
+        lblTotalFees = New Label()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
         PanelActiveRental.SuspendLayout()
@@ -67,6 +68,7 @@ Partial Class frmActive
         ' PanelActiveRental
         ' 
         PanelActiveRental.BackColor = Color.White
+        PanelActiveRental.Controls.Add(lblTotalFees)
         PanelActiveRental.Controls.Add(lblLateFees)
         PanelActiveRental.Controls.Add(lblThankyou)
         PanelActiveRental.Controls.Add(btnReturn)
@@ -82,7 +84,7 @@ Partial Class frmActive
         ' 
         lblLateFees.Font = New Font("Katibeh", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
         lblLateFees.ForeColor = Color.Black
-        lblLateFees.Location = New Point(145, 319)
+        lblLateFees.Location = New Point(145, 301)
         lblLateFees.Name = "lblLateFees"
         lblLateFees.Size = New Size(359, 32)
         lblLateFees.TabIndex = 9
@@ -240,6 +242,18 @@ Partial Class frmActive
         lblUser.Text = "Label1"
         lblUser.TextAlign = ContentAlignment.TopRight
         ' 
+        ' lblTotalFees
+        ' 
+        lblTotalFees.Font = New Font("Katibeh", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        lblTotalFees.ForeColor = Color.Black
+        lblTotalFees.Location = New Point(145, 333)
+        lblTotalFees.Name = "lblTotalFees"
+        lblTotalFees.Size = New Size(359, 32)
+        lblTotalFees.TabIndex = 10
+        lblTotalFees.Text = "Total Amount Paid:"
+        lblTotalFees.TextAlign = ContentAlignment.MiddleCenter
+        lblTotalFees.Visible = False
+        ' 
         ' frmActive
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -283,4 +297,5 @@ Partial Class frmActive
     Friend WithEvents lblThankyou As Label
     Friend WithEvents lblLateFees As Label
     Friend WithEvents lblUser As Label
+    Friend WithEvents lblTotalFees As Label
 End Class

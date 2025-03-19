@@ -147,6 +147,7 @@
         Dim lateFees As Decimal = 0
         Dim daysLate As Integer = 0
 
+        ' Calculate late fees if applicable
         If returnDate > rental.DateUntil Then
             daysLate = (returnDate - rental.DateUntil).Days
             lateFees = daysLate * (rental.DailyPrice * 0.05)
@@ -157,25 +158,34 @@
             message &= "No Late Fees Incurred."
         End If
 
-        ' Show the message box
+        ' Calculate total fees (subtotal + late fees)
+        Dim totalFees As Decimal = rental.TotalPrice + lateFees
+
+        ' Show message box
         If MessageBox.Show(message, "Return Complete", MessageBoxButtons.OK, MessageBoxIcon.Information) = DialogResult.OK Then
-            ' Handle lblThankyou visibility and parent
+            ' Display "Thank You" label
             lblThankyou.Parent = PanelActiveRental
             lblThankyou.Visible = True
             lblThankyou.BringToFront()
 
-            ' Handle lblLateFees visibility, parent, and data transfer
+            ' Display "Late Fees" label if applicable
             If hasLateFees Then
                 lblLateFees.Text = $"Late Fees: {lateFees:C2} - {daysLate} Day(s)"
                 lblLateFees.Parent = PanelActiveRental
                 lblLateFees.Visible = True
                 lblLateFees.BringToFront()
+
+                ' Display "Total Fees" label
+                lblTotalFees.Text = $"Total Fees: {totalFees:C2}"
+                lblTotalFees.Parent = PanelActiveRental
+                lblTotalFees.Visible = True
+                lblTotalFees.BringToFront()
             Else
-                lblLateFees.Visible = False ' Hide if no late fees
+                lblLateFees.Visible = False ' Hide late fees label if no late fees
+                lblTotalFees.Visible = False ' Hide total fees label if no late fees
             End If
         End If
     End Sub
-
     Private Sub ShowRentalDetails(rentalDetails As ActiveRental)
         MessageBox.Show($"Rental No: {rentalDetails.RentalNo}" & vbCrLf &
                         $"Name: {rentalDetails.Name}" & vbCrLf &
