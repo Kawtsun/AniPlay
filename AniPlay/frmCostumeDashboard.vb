@@ -1,6 +1,11 @@
 ﻿Imports System.Drawing.Drawing2D
 Public Class frmCostumeDashboard
     Public Property CurrentUser As User
+
+    Public Property Username As String
+    Public Property Name As String
+    Public Property Email As String
+
     Private costumeData As List(Of CostumeItem) ' List to store all costume data
     Private cartData As List(Of CartItem) = New List(Of CartItem)() ' List to store cart items
 
@@ -27,8 +32,8 @@ Public Class frmCostumeDashboard
     ' Initialize the form
     Private Sub frmCostumeDashboard_Load(sender As Object, e As EventArgs) Handles Me.Load
         ' Display welcome message
-        If CurrentUser IsNot Nothing Then
-            lblUser.Text = $"Welcome, {CurrentUser.username}"
+        If Not String.IsNullOrEmpty(Username) Then
+            lblUser.Text = $"Welcome, {Username}"
         Else
             lblUser.Text = "Welcome, User!"
         End If
@@ -294,28 +299,54 @@ Public Class frmCostumeDashboard
 
     Private Sub btnCart_Click(sender As Object, e As EventArgs) Handles btnCart.Click
 
+        'If CurrentUser IsNot Nothing Then
+        '    frmCartInstance.Username = CurrentUser.username
+        '    frmCartInstance.Name = CurrentUser.name
+        '    frmCartInstance.Email = CurrentUser.email
+        'End If
+
+        'Me.Hide()
+        'frmCartInstance.Show()
+
+        Dim cartForm As New frmCart()
+
+        ' Pass user data to frmCart
         If CurrentUser IsNot Nothing Then
-            frmCartInstance.Username = CurrentUser.username
-            frmCartInstance.Name = CurrentUser.name
-            frmCartInstance.Email = CurrentUser.email
+            cartForm.Username = CurrentUser.username
+            cartForm.Name = CurrentUser.name
+            cartForm.Email = CurrentUser.email
         End If
 
         Me.Hide()
-        frmCartInstance.Show()
+        cartForm.Show()
     End Sub
 
     Private Sub btnActiveList_Click(sender As Object, e As EventArgs) Handles btnActiveList.Click
+        Dim activeForm As New frmActive()
+        activeForm.Username = Username ' Pass the username
+        activeForm.Name = Name ' Pass the name
+        activeForm.Email = Email ' Pass the email
         Me.Hide()
-        frmActive.Show()
+        activeForm.Show()
     End Sub
 
     Private Sub btnAbout_Click(sender As Object, e As EventArgs) Handles btnAbout.Click
+        Dim aboutForm As New frmAbout()
+        aboutForm.Username = Username ' Pass the username
+        aboutForm.Name = Name ' Pass the name
+        aboutForm.Email = Email ' Pass the email
         Me.Hide()
-        frmAbout.Show()
+        aboutForm.Show()
     End Sub
+
 
     Private Sub frmCostumeDashboard_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
         SetActiveNavButton(btnShop)
+        If CurrentUser IsNot Nothing Then
+            lblUser.Text = $"Welcome, {CurrentUser.username}"
+        Else
+            lblUser.Text = "Welcome, User!"
+        End If
     End Sub
 
     Private Sub MakePictureBoxCircular(pictureBox As PictureBox)

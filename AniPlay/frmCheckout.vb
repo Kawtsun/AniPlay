@@ -2,6 +2,7 @@
 
 Imports System.Drawing.Drawing2D
 Public Class frmCheckout
+    Public Property CurrentUser As User
     Public Property Username As String
     Public Property Name As String
     Public Property Email As String
@@ -76,9 +77,13 @@ Public Class frmCheckout
     Private Sub frmCheckout_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
 
-        lblUser.Text = $"Welcome, {Username}"
-        lblName.Text = Name
-        lblEmail.Text = Email
+        If Not String.IsNullOrEmpty(Username) Then
+            lblUser.Text = $"Welcome, {Username}"
+            lblName.Text = Name
+            lblEmail.Text = Email
+        Else
+            lblUser.Text = "Welcome, User!"
+        End If
 
         MakePictureBoxCircular(PictureBoxLogo)
 
@@ -99,6 +104,10 @@ Public Class frmCheckout
     Private Sub btnProceed_Click(sender As Object, e As EventArgs) Handles btnProceed.Click
         ' Create an instance of frmActive
         Dim frmActiveInstance As New frmActive()
+
+        frmActiveInstance.Username = Username ' Pass the Username to frmActive
+        frmActiveInstance.Email = Email ' Pass the Email (optional)
+        frmActiveInstance.CurrentUser = CurrentUser ' Optional: If you're using the full user object
 
         ' Prepare data to pass to frmActive
         Dim rentalDetails As New ActiveRental With {
@@ -133,5 +142,6 @@ Public Class frmCheckout
         ' Set the region of the PictureBox to the circular path
         pictureBox.Region = New Region(circlePath)
     End Sub
+
 
 End Class

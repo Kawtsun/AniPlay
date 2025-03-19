@@ -1,8 +1,10 @@
 ﻿Imports System.Drawing.Drawing2D
 Public Class frmActive
-
+    Public Property CurrentUser As User
     Public Property Username As String
+    Public Property Name As String
     Public Property Email As String
+
     Private activeRentals As List(Of ActiveRental) = New List(Of ActiveRental)()
 
     ' Load active rentals into the panel
@@ -192,8 +194,11 @@ Public Class frmActive
 
     ' Form Load Event
     Private Sub frmActive_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        lblUser.Text = $"Welcome, {Username}"
-
+        If Not String.IsNullOrEmpty(Username) Then
+            lblUser.Text = $"Welcome, {Username}"
+        Else
+            lblUser.Text = "Welcome, User!"
+        End If
         MakePictureBoxCircular(PictureBoxLogo)
 
         ResetLabelsVisibility() ' Hide labels on load
@@ -229,13 +234,21 @@ Public Class frmActive
     ' Event handlers for navigation buttons
     Private Sub btnShop_Click(sender As Object, e As EventArgs) Handles btnShop.Click
         ' Set Cart button as active
+        Dim Shop As New frmCostumeDashboard()
+        Shop.Username = Username ' Pass the username
+        Shop.Name = Name ' Pass the name
+        Shop.Email = Email ' Pass the email
         Me.Hide()
-        frmCostumeDashboard.Show()
+        Shop.Show()
     End Sub
 
     Private Sub btnCart_Click(sender As Object, e As EventArgs) Handles btnCart.Click
+        Dim Cart As New frmCart()
+        Cart.Username = Username ' Pass the username
+        Cart.Name = Name ' Pass the name
+        Cart.Email = Email ' Pass the email
         Me.Hide()
-        frmCart.Show()
+        Cart.Show()
     End Sub
 
     Private Sub btnActiveList_Click(sender As Object, e As EventArgs) Handles btnActiveList.Click
@@ -243,12 +256,17 @@ Public Class frmActive
     End Sub
 
     Private Sub btnAbout_Click(sender As Object, e As EventArgs) Handles btnAbout.Click
+        Dim aboutForm As New frmAbout()
+        aboutForm.Username = Username ' Pass the username
+        aboutForm.Name = Name ' Pass the name
+        aboutForm.Email = Email ' Pass the email
         Me.Hide()
-        frmAbout.Show()
+        aboutForm.Show()
     End Sub
 
     Private Sub frmActive_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
         SetActiveNavButton(btnActiveList)
+
     End Sub
 
     Private Sub MakePictureBoxCircular(pictureBox As PictureBox)

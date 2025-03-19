@@ -1,5 +1,9 @@
 ﻿Imports System.Drawing.Drawing2D
 Public Class frmCart
+
+    Public Property CurrentUser As User
+    'Private CurrentUsers As User ' Local to this form
+
     Public Property Username As String
     Public Property Name As String
     Public Property Email As String
@@ -7,6 +11,7 @@ Public Class frmCart
     Public Shared CartItemList As New List(Of frmCostumeDashboard.CartItem)
 
     Public Shared Instance As frmCart
+
 
     ' Constructor
     Public Sub New()
@@ -56,12 +61,18 @@ Public Class frmCart
 
     Private Sub frmCart_Load(sender As Object, e As EventArgs) Handles Me.Load
         ' Set the welcome label
-        If Username IsNot Nothing Then
+        'If CurrentUser IsNot Nothing Then
+        '    lblUser.Text = $"Welcome, {CurrentUser.username}"
+        'Else
+        '    lblUser.Text = "Welcome, User!"
+        'End If
+
+        If Not String.IsNullOrEmpty(Username) Then
             lblUser.Text = $"Welcome, {Username}"
+
         Else
             lblUser.Text = "Welcome, User!"
         End If
-
         MakePictureBoxCircular(PictureBoxLogo)
 
         ' Initialize the labels
@@ -208,6 +219,8 @@ Public Class frmCart
                                              checkoutForm.Username = Username
                                              checkoutForm.Name = Name
                                              checkoutForm.Email = Email
+
+
                                              checkoutForm.LoadCheckoutData(cartData, subtotal, baseDiscount) ' Pass subtotal and discount
                                              checkoutForm.Show()
                                              Me.Hide()
@@ -233,8 +246,12 @@ Public Class frmCart
     Private Sub btnShop_Click(sender As Object, e As EventArgs) Handles btnShop.Click
         ' Set Shop button as active
         SetActiveNavButton(btnShop)
+        Dim shopForm As New frmCostumeDashboard()
+        shopForm.Username = Username ' Pass the username
+        shopForm.Name = Name ' Pass the name
+        shopForm.Email = Email ' Pass the email
         Me.Hide()
-        frmCostumeDashboard.Show()
+        shopForm.Show()
     End Sub
 
     Private Sub btnCart_Click(sender As Object, e As EventArgs) Handles btnCart.Click
@@ -244,14 +261,22 @@ Public Class frmCart
 
     Private Sub btnActiveList_Click(sender As Object, e As EventArgs) Handles btnActiveList.Click
         ' Set Active List button as active
+        Dim activeForm As New frmActive()
+        activeForm.Username = Username ' Pass the username
+        activeForm.Name = Name ' Pass the name
+        activeForm.Email = Email ' Pass the email
         Me.Hide()
-        frmActive.Show()
+        activeForm.Show()
     End Sub
 
     Private Sub btnAbout_Click(sender As Object, e As EventArgs) Handles btnAbout.Click
         ' Set About button as active
+        Dim About As New frmAbout()
+        About.Username = Username ' Pass the username
+        About.Name = Name ' Pass the name
+        About.Email = Email ' Pass the email
         Me.Hide()
-        frmAbout.Show()
+        About.Show()
     End Sub
 
     Private Sub frmCart_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
