@@ -38,6 +38,7 @@ Partial Class frmActive
         btnActive = New Button()
         btnCart = New Button()
         btnShop = New Button()
+        lblUser = New Label()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
         PanelActiveRental.SuspendLayout()
@@ -158,7 +159,7 @@ Partial Class frmActive
         ' PictureBox1
         ' 
         PictureBox1.Image = My.Resources.Resources.logo2
-        PictureBox1.Location = New Point(46, 25)
+        PictureBox1.Location = New Point(47, 18)
         PictureBox1.Name = "PictureBox1"
         PictureBox1.Size = New Size(100, 100)
         PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
@@ -170,7 +171,7 @@ Partial Class frmActive
         Label1.AutoSize = True
         Label1.Font = New Font("Magneto", 24F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.ForeColor = Color.White
-        Label1.Location = New Point(183, 52)
+        Label1.Location = New Point(190, 47)
         Label1.Name = "Label1"
         Label1.Size = New Size(165, 41)
         Label1.TabIndex = 2
@@ -181,7 +182,7 @@ Partial Class frmActive
         btnAbout.BackColor = Color.MediumSeaGreen
         btnAbout.Font = New Font("Katibeh", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
         btnAbout.ForeColor = Color.White
-        btnAbout.Location = New Point(1133, 52)
+        btnAbout.Location = New Point(1133, 47)
         btnAbout.Name = "btnAbout"
         btnAbout.Size = New Size(119, 51)
         btnAbout.TabIndex = 3
@@ -194,7 +195,7 @@ Partial Class frmActive
         btnActive.BackColor = Color.MediumSeaGreen
         btnActive.Font = New Font("Katibeh", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
         btnActive.ForeColor = Color.White
-        btnActive.Location = New Point(1008, 52)
+        btnActive.Location = New Point(1008, 47)
         btnActive.Name = "btnActive"
         btnActive.Size = New Size(119, 51)
         btnActive.TabIndex = 4
@@ -207,7 +208,7 @@ Partial Class frmActive
         btnCart.BackColor = Color.MediumSeaGreen
         btnCart.Font = New Font("Katibeh", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
         btnCart.ForeColor = Color.White
-        btnCart.Location = New Point(883, 52)
+        btnCart.Location = New Point(883, 47)
         btnCart.Name = "btnCart"
         btnCart.Size = New Size(119, 51)
         btnCart.TabIndex = 5
@@ -220,7 +221,7 @@ Partial Class frmActive
         btnShop.BackColor = Color.MediumSeaGreen
         btnShop.Font = New Font("Katibeh", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
         btnShop.ForeColor = Color.White
-        btnShop.Location = New Point(758, 52)
+        btnShop.Location = New Point(758, 47)
         btnShop.Name = "btnShop"
         btnShop.Size = New Size(119, 51)
         btnShop.TabIndex = 6
@@ -228,12 +229,24 @@ Partial Class frmActive
         btnShop.TextAlign = ContentAlignment.TopCenter
         btnShop.UseVisualStyleBackColor = False
         ' 
+        ' lblUser
+        ' 
+        lblUser.Font = New Font("Katibeh", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        lblUser.ForeColor = Color.White
+        lblUser.Location = New Point(758, 7)
+        lblUser.Name = "lblUser"
+        lblUser.Size = New Size(494, 35)
+        lblUser.TabIndex = 1
+        lblUser.Text = "Label1"
+        lblUser.TextAlign = ContentAlignment.TopRight
+        ' 
         ' frmActive
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.Teal
         ClientSize = New Size(1264, 681)
+        Controls.Add(lblUser)
         Controls.Add(btnShop)
         Controls.Add(btnCart)
         Controls.Add(btnActive)
@@ -269,4 +282,5 @@ Partial Class frmActive
     Friend WithEvents btnReturn As Button
     Friend WithEvents lblThankyou As Label
     Friend WithEvents lblLateFees As Label
+    Friend WithEvents lblUser As Label
 End Class

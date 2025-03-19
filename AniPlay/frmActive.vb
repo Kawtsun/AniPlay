@@ -1,4 +1,6 @@
 ﻿Public Class frmActive
+
+    Public Property Username As String
     ' Property to hold active rentals
     Private activeRentals As List(Of ActiveRental) = New List(Of ActiveRental)()
 
@@ -186,5 +188,9 @@
                         $"Discount: {rentalDetails.Discount:C2}" & vbCrLf &
                         $"Total Price: {rentalDetails.TotalPrice:C2}",
                         "Rental Details", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
+
+    Private Sub frmActive_Load(sender As Object, e As EventArgs) Handles Me.Load
+        lblUser.Text = $"Welcome, {Username}"
     End Sub
 End Class
