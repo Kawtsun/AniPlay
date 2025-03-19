@@ -20,6 +20,7 @@
         Public Property ImagePath As String
         Public Property RentalPricePerDay As Decimal ' Store price per day
         Public Property RentalDays As Integer ' Number of rental days
+
     End Class
 
     ' Initialize the form

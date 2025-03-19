@@ -5,8 +5,6 @@ Public Class frmCheckout
     Public Property Name As String
     Public Property Email As String
 
-
-
     Private checkoutData As List(Of frmCostumeDashboard.CartItem)
     Private baseTotalPrice As Decimal ' Total price for 1 day before discounts
     Private baseDiscountRate As Decimal ' Fixed base discount (5%)
