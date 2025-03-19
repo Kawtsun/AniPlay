@@ -2,6 +2,7 @@
 Public Class frmActive
 
     Public Property Username As String
+    Public Property Email As String
     Private activeRentals As List(Of ActiveRental) = New List(Of ActiveRental)()
 
     ' Load active rentals into the panel
