@@ -25,6 +25,8 @@ Partial Class frmActive
         Panel1 = New Panel()
         Panel2 = New Panel()
         PanelActiveRental = New Panel()
+        lblLateFees = New Label()
+        lblThankyou = New Label()
         btnReturn = New Button()
         Label4 = New Label()
         DateTimeDateReturned = New DateTimePicker()
@@ -64,6 +66,8 @@ Partial Class frmActive
         ' PanelActiveRental
         ' 
         PanelActiveRental.BackColor = Color.White
+        PanelActiveRental.Controls.Add(lblLateFees)
+        PanelActiveRental.Controls.Add(lblThankyou)
         PanelActiveRental.Controls.Add(btnReturn)
         PanelActiveRental.Controls.Add(Label4)
         PanelActiveRental.Controls.Add(DateTimeDateReturned)
@@ -72,6 +76,30 @@ Partial Class frmActive
         PanelActiveRental.Name = "PanelActiveRental"
         PanelActiveRental.Size = New Size(612, 406)
         PanelActiveRental.TabIndex = 1
+        ' 
+        ' lblLateFees
+        ' 
+        lblLateFees.Font = New Font("Katibeh", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        lblLateFees.ForeColor = Color.Black
+        lblLateFees.Location = New Point(145, 319)
+        lblLateFees.Name = "lblLateFees"
+        lblLateFees.Size = New Size(359, 32)
+        lblLateFees.TabIndex = 9
+        lblLateFees.Text = "Late Fees:"
+        lblLateFees.TextAlign = ContentAlignment.MiddleCenter
+        lblLateFees.Visible = False
+        ' 
+        ' lblThankyou
+        ' 
+        lblThankyou.Font = New Font("Katibeh", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point, CByte(178))
+        lblThankyou.ForeColor = Color.Red
+        lblThankyou.Location = New Point(145, 365)
+        lblThankyou.Name = "lblThankyou"
+        lblThankyou.Size = New Size(359, 32)
+        lblThankyou.TabIndex = 8
+        lblThankyou.Text = "Thank you! for shopping with us. Come back again."
+        lblThankyou.TextAlign = ContentAlignment.MiddleCenter
+        lblThankyou.Visible = False
         ' 
         ' btnReturn
         ' 
@@ -239,4 +267,6 @@ Partial Class frmActive
     Friend WithEvents DateTimeDateReturned As DateTimePicker
     Friend WithEvents Label4 As Label
     Friend WithEvents btnReturn As Button
+    Friend WithEvents lblThankyou As Label
+    Friend WithEvents lblLateFees As Label
 End Class

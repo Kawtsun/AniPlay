@@ -108,16 +108,20 @@
                 .Name = "btnReturn",
                 .Text = "Return",
                 .Font = New Font("Katibeh", 18, FontStyle.Regular),
-                .Width = panelWidth,
-                .Height = 40,
+                .Width = panelWidth - 40,
+                .Height = 50,
                 .BackColor = Color.MediumSeaGreen,
                 .ForeColor = Color.White,
-                .FlatStyle = FlatStyle.Flat,
+                .FlatStyle = FlatStyle.Standard,
                 .Top = dateReturnedPicker.Bottom + 10,
                 .Left = contentMargin,
                 .Enabled = False
             }
-            AddHandler returnButton.Click, Sub(sender, e) HandleReturn(rental, dateReturnedPicker.Value)
+            AddHandler returnButton.Click, Sub(sender, e)
+                                               HandleReturn(rental, dateReturnedPicker.Value)
+                                               returnButton.Enabled = False ' Disable the button after click
+                                               dateReturnedPicker.Enabled = False
+                                           End Sub
             rentalPanel.Controls.Add(returnButton)
 
             ' Enable return button when a date is selected
@@ -135,19 +139,39 @@
 
     Private Sub HandleReturn(rental As ActiveRental, returnDate As DateTime)
         Dim message As String = $"Rental No: {rental.RentalNo}" & vbCrLf &
-                                $"Rental Period: {rental.DateFrom.ToShortDateString()} to {rental.DateUntil.ToShortDateString()}" & vbCrLf &
-                                $"Return Date: {returnDate.ToShortDateString()}" & vbCrLf
+                            $"Rental Period: {rental.DateFrom.ToShortDateString()} to {rental.DateUntil.ToShortDateString()}" & vbCrLf &
+                            $"Return Date: {returnDate.ToShortDateString()}" & vbCrLf
+        Dim hasLateFees As Boolean = False
+        Dim lateFees As Decimal = 0
+        Dim daysLate As Integer = 0
 
         If returnDate > rental.DateUntil Then
-            Dim daysLate As Integer = (returnDate - rental.DateUntil).Days
-            Dim lateFees As Decimal = daysLate * (rental.DailyPrice * 0.05)
+            daysLate = (returnDate - rental.DateUntil).Days
+            lateFees = daysLate * (rental.DailyPrice * 0.05)
             message &= $"Duration of Late Return: {daysLate} Day(s)" & vbCrLf &
-                       $"Late Fees: {lateFees:C2}"
+                   $"Late Fees: {lateFees:C2}"
+            hasLateFees = True
         Else
             message &= "No Late Fees Incurred."
         End If
 
-        MessageBox.Show(message, "Return Complete", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        ' Show the message box
+        If MessageBox.Show(message, "Return Complete", MessageBoxButtons.OK, MessageBoxIcon.Information) = DialogResult.OK Then
+            ' Handle lblThankyou visibility and parent
+            lblThankyou.Parent = PanelActiveRental
+            lblThankyou.Visible = True
+            lblThankyou.BringToFront()
+
+            ' Handle lblLateFees visibility, parent, and data transfer
+            If hasLateFees Then
+                lblLateFees.Text = $"Late Fees: {lateFees:C2} - {daysLate} Day(s)"
+                lblLateFees.Parent = PanelActiveRental
+                lblLateFees.Visible = True
+                lblLateFees.BringToFront()
+            Else
+                lblLateFees.Visible = False ' Hide if no late fees
+            End If
+        End If
     End Sub
 
     Private Sub ShowRentalDetails(rentalDetails As ActiveRental)
